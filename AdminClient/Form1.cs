@@ -10,8 +10,20 @@ using System.Windows.Forms;
 
 namespace AdminClient {
     public partial class Form1 : Form {
+
+        CreateAuctionForm CreateAuctionFormShow;
+
         public Form1() {
+            
             InitializeComponent();
+        }
+
+        private void auctionToolStripMenuItem_Click(object sender, EventArgs e){
+            if (CreateAuctionFormShow == null)
+            {
+                CreateAuctionFormShow = new CreateAuctionForm();
+                CreateAuctionFormShow.MdiParent = this;
+            }
         }
     }
 }
