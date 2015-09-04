@@ -1,0 +1,6 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=830E4B0C98616347A5D2AB02FF9FD0FF/AbsolutePath/@EntryValue">C:\Datamatiker\Semester 4\System Udvikling\XP\KunstKlubben\TemaXP-G2\settingsResharper.DotSettings</s:String>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=830E4B0C98616347A5D2AB02FF9FD0FF/RelativePath/@EntryValue">..\settingsResharper.DotSettings</s:String>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=830E4B0C98616347A5D2AB02FF9FD0FF/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File830E4B0C98616347A5D2AB02FF9FD0FF/@KeyIndexDefined">True</s:Boolean>
+	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File830E4B0C98616347A5D2AB02FF9FD0FF/RelativePriority/@EntryValue">1</s:Double></wpf:ResourceDictionary>
