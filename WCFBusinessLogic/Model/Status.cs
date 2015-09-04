@@ -4,14 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WCFBusinessLogic {
-
-    
-
-    public class Class1 {
-
-        
-        
+namespace WCFBusinessLogic.Model {
+    public enum Status {
+        Ready,
+        Ongoing,
+        Complete,
     }
-
 }
