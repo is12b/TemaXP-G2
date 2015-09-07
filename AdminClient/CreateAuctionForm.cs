@@ -119,6 +119,7 @@ namespace AdminClient
             }
             dataGridView1.ClearSelection();
             MoveUp(id);
+         
             this.dataGridView1.Update();
             this.dataGridView1.Refresh();
         }

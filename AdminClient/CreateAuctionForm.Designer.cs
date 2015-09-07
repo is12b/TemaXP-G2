@@ -33,49 +33,49 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ArtPieceDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ArtPiecePriceLbl = new System.Windows.Forms.Label();
+            this.ArtPieceArtistLbl = new System.Windows.Forms.Label();
+            this.ArtPieceNumberLbl = new System.Windows.Forms.Label();
+            this.ArtPiecePictureBox = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.AuctionTimePerArtPiece = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.AuctionMultipler = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.AuctionNameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.artPieceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.CheckForAuction = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.artPieceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.artistDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.artPieceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ArtPiecePictureBox)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AuctionTimePerArtPiece)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AuctionMultipler)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.artPieceBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -114,7 +114,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.ArtPieceDescriptionTextBox);
             this.groupBox3.Controls.Add(this.panel2);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
@@ -124,24 +124,24 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Kunstværk Information";
             // 
-            // textBox1
+            // ArtPieceDescriptionTextBox
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(3, 216);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(394, 113);
-            this.textBox1.TabIndex = 0;
+            this.ArtPieceDescriptionTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.ArtPieceDescriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ArtPieceDescriptionTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ArtPieceDescriptionTextBox.Location = new System.Drawing.Point(3, 216);
+            this.ArtPieceDescriptionTextBox.Multiline = true;
+            this.ArtPieceDescriptionTextBox.Name = "ArtPieceDescriptionTextBox";
+            this.ArtPieceDescriptionTextBox.Size = new System.Drawing.Size(394, 113);
+            this.ArtPieceDescriptionTextBox.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.ArtPiecePriceLbl);
+            this.panel2.Controls.Add(this.ArtPieceArtistLbl);
+            this.panel2.Controls.Add(this.ArtPieceNumberLbl);
+            this.panel2.Controls.Add(this.ArtPiecePictureBox);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label3);
@@ -161,42 +161,42 @@
             this.label12.TabIndex = 9;
             this.label12.Text = "Beskrivelse:";
             // 
-            // label9
+            // ArtPiecePriceLbl
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(65, 71);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "label9";
+            this.ArtPiecePriceLbl.AutoSize = true;
+            this.ArtPiecePriceLbl.Location = new System.Drawing.Point(65, 71);
+            this.ArtPiecePriceLbl.Name = "ArtPiecePriceLbl";
+            this.ArtPiecePriceLbl.Size = new System.Drawing.Size(35, 13);
+            this.ArtPiecePriceLbl.TabIndex = 8;
+            this.ArtPiecePriceLbl.Text = "label9";
             // 
-            // label10
+            // ArtPieceArtistLbl
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(65, 54);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 13);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "label10";
+            this.ArtPieceArtistLbl.AutoSize = true;
+            this.ArtPieceArtistLbl.Location = new System.Drawing.Point(65, 54);
+            this.ArtPieceArtistLbl.Name = "ArtPieceArtistLbl";
+            this.ArtPieceArtistLbl.Size = new System.Drawing.Size(41, 13);
+            this.ArtPieceArtistLbl.TabIndex = 7;
+            this.ArtPieceArtistLbl.Text = "label10";
             // 
-            // label11
+            // ArtPieceNumberLbl
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(65, 37);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "label11";
+            this.ArtPieceNumberLbl.AutoSize = true;
+            this.ArtPieceNumberLbl.Location = new System.Drawing.Point(65, 37);
+            this.ArtPieceNumberLbl.Name = "ArtPieceNumberLbl";
+            this.ArtPieceNumberLbl.Size = new System.Drawing.Size(41, 13);
+            this.ArtPieceNumberLbl.TabIndex = 6;
+            this.ArtPieceNumberLbl.Text = "label11";
             // 
-            // pictureBox1
+            // ArtPiecePictureBox
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(223, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(162, 187);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.ArtPiecePictureBox.BackColor = System.Drawing.Color.White;
+            this.ArtPiecePictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ArtPiecePictureBox.Location = new System.Drawing.Point(223, 7);
+            this.ArtPiecePictureBox.Name = "ArtPiecePictureBox";
+            this.ArtPiecePictureBox.Size = new System.Drawing.Size(162, 187);
+            this.ArtPiecePictureBox.TabIndex = 1;
+            this.ArtPiecePictureBox.TabStop = false;
             // 
             // label4
             // 
@@ -237,13 +237,13 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.numericUpDown2);
+            this.groupBox2.Controls.Add(this.AuctionTimePerArtPiece);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.numericUpDown1);
+            this.groupBox2.Controls.Add(this.AuctionMultipler);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.AuctionNameTextBox);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox2.Location = new System.Drawing.Point(0, 332);
             this.groupBox2.Name = "groupBox2";
@@ -252,12 +252,12 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Auktionens Indstillinger";
             // 
-            // numericUpDown2
+            // AuctionTimePerArtPiece
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(116, 72);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(72, 20);
-            this.numericUpDown2.TabIndex = 8;
+            this.AuctionTimePerArtPiece.Location = new System.Drawing.Point(116, 72);
+            this.AuctionTimePerArtPiece.Name = "AuctionTimePerArtPiece";
+            this.AuctionTimePerArtPiece.Size = new System.Drawing.Size(72, 20);
+            this.AuctionTimePerArtPiece.TabIndex = 8;
             // 
             // label8
             // 
@@ -268,12 +268,12 @@
             this.label8.Text = "Minuter";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // numericUpDown1
+            // AuctionMultipler
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(116, 45);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(72, 20);
-            this.numericUpDown1.TabIndex = 6;
+            this.AuctionMultipler.Location = new System.Drawing.Point(116, 45);
+            this.AuctionMultipler.Name = "AuctionMultipler";
+            this.AuctionMultipler.Size = new System.Drawing.Size(72, 20);
+            this.AuctionMultipler.TabIndex = 6;
             // 
             // label7
             // 
@@ -302,12 +302,12 @@
             this.label5.Text = "Navn:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox2
+            // AuctionNameTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(116, 19);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(278, 20);
-            this.textBox2.TabIndex = 0;
+            this.AuctionNameTextBox.Location = new System.Drawing.Point(116, 19);
+            this.AuctionNameTextBox.Name = "AuctionNameTextBox";
+            this.AuctionNameTextBox.Size = new System.Drawing.Size(278, 20);
+            this.AuctionNameTextBox.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -338,6 +338,41 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(328, 384);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // CheckForAuction
+            // 
+            this.CheckForAuction.HeaderText = "";
+            this.CheckForAuction.Name = "CheckForAuction";
+            // 
+            // artPieceIdDataGridViewTextBoxColumn
+            // 
+            this.artPieceIdDataGridViewTextBoxColumn.DataPropertyName = "ArtPieceId";
+            this.artPieceIdDataGridViewTextBoxColumn.HeaderText = "ArtPieceId";
+            this.artPieceIdDataGridViewTextBoxColumn.Name = "artPieceIdDataGridViewTextBoxColumn";
+            this.artPieceIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // numberDataGridViewTextBoxColumn
+            // 
+            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
+            this.numberDataGridViewTextBoxColumn.HeaderText = "Number";
+            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
+            this.numberDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // artistDataGridViewTextBoxColumn
+            // 
+            this.artistDataGridViewTextBoxColumn.DataPropertyName = "Artist";
+            this.artistDataGridViewTextBoxColumn.HeaderText = "Artist";
+            this.artistDataGridViewTextBoxColumn.Name = "artistDataGridViewTextBoxColumn";
+            // 
+            // artPieceBindingSource
+            // 
+            this.artPieceBindingSource.DataSource = typeof(WCFBusinessLogic.Model.ArtPiece);
             // 
             // panel1
             // 
@@ -379,41 +414,6 @@
             this.button2.Text = "Markere Alle";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // artPieceBindingSource
-            // 
-            this.artPieceBindingSource.DataSource = typeof(WCFBusinessLogic.Model.ArtPiece);
-            // 
-            // CheckForAuction
-            // 
-            this.CheckForAuction.HeaderText = "";
-            this.CheckForAuction.Name = "CheckForAuction";
-            // 
-            // artPieceIdDataGridViewTextBoxColumn
-            // 
-            this.artPieceIdDataGridViewTextBoxColumn.DataPropertyName = "ArtPieceId";
-            this.artPieceIdDataGridViewTextBoxColumn.HeaderText = "ArtPieceId";
-            this.artPieceIdDataGridViewTextBoxColumn.Name = "artPieceIdDataGridViewTextBoxColumn";
-            this.artPieceIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // numberDataGridViewTextBoxColumn
-            // 
-            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
-            this.numberDataGridViewTextBoxColumn.HeaderText = "Number";
-            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
-            this.numberDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // artistDataGridViewTextBoxColumn
-            // 
-            this.artistDataGridViewTextBoxColumn.DataPropertyName = "Artist";
-            this.artistDataGridViewTextBoxColumn.HeaderText = "Artist";
-            this.artistDataGridViewTextBoxColumn.Name = "artistDataGridViewTextBoxColumn";
-            // 
             // CreateAuctionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -430,15 +430,15 @@
             this.groupBox3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ArtPiecePictureBox)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AuctionTimePerArtPiece)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AuctionMultipler)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.artPieceBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -460,20 +460,20 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.PictureBox ArtPiecePictureBox;
+        private System.Windows.Forms.TextBox ArtPieceDescriptionTextBox;
+        private System.Windows.Forms.NumericUpDown AuctionTimePerArtPiece;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown AuctionMultipler;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox AuctionNameTextBox;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label ArtPiecePriceLbl;
+        private System.Windows.Forms.Label ArtPieceArtistLbl;
+        private System.Windows.Forms.Label ArtPieceNumberLbl;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CheckForAuction;
         private System.Windows.Forms.DataGridViewTextBoxColumn artPieceIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
