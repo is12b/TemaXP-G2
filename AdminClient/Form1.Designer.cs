@@ -62,6 +62,7 @@
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "Ny auktion";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newAuctionToolStripMenuItem_Click);
             // 
             // Form1
             // 
