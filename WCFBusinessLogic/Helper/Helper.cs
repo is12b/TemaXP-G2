@@ -6,11 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Moq;
 using Newtonsoft.Json;
 
 namespace WCFBusinessLogic.Helper {
 
         public static class Helper {
+
+            public static void AddQueryData<T>(this Mock source, IQueryable<T> data) {
+                source.As<IQueryable<T>>().Setup(m => m.Provider).Returns(data.Provider);
+                source.As<IQueryable<T>>().Setup(m => m.Expression).Returns(data.Expression);
+                source.As<IQueryable<T>>().Setup(m => m.ElementType).Returns(data.ElementType);
+                source.As<IQueryable<T>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+            }
 
             public static T Clone<T>(this T source) {
                 // Don't serialize a null object, simply return the default for that object
