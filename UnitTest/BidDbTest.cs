@@ -97,6 +97,8 @@ namespace UnitTest {
                 Bids = new List<Bid>() { bid }
             };
 
+            bid.LotId = _bidLot.LotId;
+
             _bidAuction = new Auction {
                 AuctionId = 5,
                 AuctionName = "Test Auction",
@@ -109,7 +111,8 @@ namespace UnitTest {
 
 
             _auctionMock.AddQueryData(new List<Auction> { _auction, _bidAuction }.AsQueryable());
-
+            _bidMock.AddQueryData(new List<Bid> { bid }.AsQueryable());
+            _lotMock.AddQueryData(new List<Lot> { _bidLot, _lot }.AsQueryable());
         }
 
         #endregion
@@ -143,7 +146,7 @@ namespace UnitTest {
             try {
                 Test();
                 var bidCtr = new BidDb(_mockContext.Object);
-
+                
                 var list = bidCtr.GetAllByLot(_bidLot);
 
                 if (list.Count > 0) {
