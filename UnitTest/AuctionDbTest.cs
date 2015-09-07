@@ -4,12 +4,13 @@ using System.Data.Entity;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using WCFBusinessLogic.Controller;
+using WCFBusinessLogic.DB;
+using WCFBusinessLogic.Helper;
 using WCFBusinessLogic.Model;
 
 namespace UnitTest {
     [TestClass]
-    public class AuctionControllerTest {
+    public class AuctionDbTest {
 
         #region Init
 
@@ -52,7 +53,6 @@ namespace UnitTest {
                 ArtPiece = _artPiece
             };
 
-
             _auction = new Auction {
                 AuctionId = 1,
                 AuctionName = "Test Auction",
@@ -84,7 +84,7 @@ namespace UnitTest {
         public void AddTest() {
             try {
                 Test();
-                var _auctionCtr = new AuctionController(_mockContext.Object);
+                var _auctionCtr = new AuctionDb(_mockContext.Object);
 
                 _auctionCtr.Add(_auction);
 
@@ -100,7 +100,7 @@ namespace UnitTest {
         public void GetAllTest() {
             try {
                 Test();
-                var _auctionCtr = new AuctionController(_mockContext.Object);
+                var _auctionCtr = new AuctionDb(_mockContext.Object);
 
                 var list = _auctionCtr.GetAll();
                 Console.WriteLine(list[0].AuctionName);
@@ -116,7 +116,7 @@ namespace UnitTest {
         public void UpdateTest() {
             try {
                 Test();
-                var _auctionCtr = new AuctionController(_mockContext.Object);
+                var _auctionCtr = new AuctionDb(_mockContext.Object);
 
                 _auction.AuctionName = "Kage";
 
@@ -131,7 +131,49 @@ namespace UnitTest {
             }
         }
 
+        [TestMethod]
+        public void DeleteTest() {
+            try {
+                Test();
+                var _auctionCtr = new AuctionDb(_mockContext.Object);
 
+                _auctionCtr.Delete(_auction.AuctionId);
+
+                _lotMock.Verify(m => m.RemoveRange(It.IsAny<List<Lot>>()), Times.Once);
+                _auctionMock.Verify(m => m.Remove(It.IsAny<Auction>()), Times.Once);
+                _mockContext.Verify(m => m.SaveChanges(), Times.Once);
+
+                Assert.IsTrue(true);
+            } catch (Exception e) {
+                e.DebugGetLine();
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public void GetByIdTest() {
+            bool test = false;
+            try {
+                Test();
+                var _auctionCtr = new AuctionDb(_mockContext.Object);
+
+                var ac = _auctionCtr.GetById(1);
+
+                test = true;
+
+                _auctionCtr.GetById(2);
+
+            } catch (NullReferenceException) {
+                if (!test) {
+                    Assert.Fail();
+                } else {
+                    Assert.IsTrue(true);
+                }
+            } catch (Exception e) {
+                e.DebugGetLine();
+                Assert.Fail();
+            }
+        }
 
     }
 }
