@@ -55,13 +55,13 @@
             this.auctionToolStripMenuItem.Name = "auctionToolStripMenuItem";
             this.auctionToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.auctionToolStripMenuItem.Text = "Auktion";
-            this.auctionToolStripMenuItem.Click += new System.EventHandler(this.auctionToolStripMenuItem_Click);
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "Ny auktion";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // Form1
             // 
