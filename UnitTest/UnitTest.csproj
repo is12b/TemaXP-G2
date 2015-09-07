@@ -83,6 +83,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\WCFBusinessLogic.Model.Auction.datasource" />
     <None Include="Properties\DataSources\WCFService.CompositeType.datasource" />
     <None Include="Service References\AuctionReference\service.wsdl" />
     <None Include="Service References\AuctionReference\service.xsd">
