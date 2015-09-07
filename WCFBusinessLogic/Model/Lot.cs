@@ -10,17 +10,43 @@ using System.Threading.Tasks;
 namespace WCFBusinessLogic.Model {
     [DataContract(IsReference = true)]
     public class Lot {
+
+        public Lot() {
+            Bids = new List<Bid>();
+        }
+
         [DataMember]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int LotId { get; set; }
+        public int LotId {
+            get;
+            set;
+        }
+
         [DataMember]
         [Required]
-        public int MinBid { get; set; }
+        public int MinBid {
+            get;
+            set;
+        }
+
         [DataMember]
         [Required]
-        public int Position { get; set; }
+        public int Position {
+            get;
+            set;
+        }
+
         [DataMember]
         [Required]
-        public ArtPiece ArtPiece { get; set; }
+        public ArtPiece ArtPiece {
+            get;
+            set;
+        }
+
+        [DataMember]
+        public List<Bid> Bids {
+            get;
+            set;
+        }
     }
 }

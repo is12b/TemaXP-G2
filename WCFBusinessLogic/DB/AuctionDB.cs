@@ -4,16 +4,16 @@ using System.Data.Entity;
 using System.Linq;
 using WCFBusinessLogic.Model;
 
-namespace WCFBusinessLogic.Controller {
-    public class AuctionController {
+namespace WCFBusinessLogic.DB {
+    public class AuctionDb : IAuctionDb {
 
         private AuctionContext _ac;
 
-        public AuctionController(AuctionContext context) {
+        public AuctionDb(AuctionContext context) {
             _ac = context;
         }
 
-        public AuctionController() {
+        public AuctionDb() {
             _ac = new AuctionContext();
         }
 
@@ -42,7 +42,32 @@ namespace WCFBusinessLogic.Controller {
             } catch (Exception e) {
                 Console.WriteLine(e);
             }
-            
+
+        }
+
+        public void Delete(int id) {
+            var auction = GetById(id);
+
+            List<Lot> lotList = auction.Lots.Where(l => l.Bids.Count == 0).ToList();
+
+            if (lotList.Count > 0) {
+                _ac.Lots.RemoveRange(lotList);
+            }
+
+            _ac.Auctions.Remove(auction);
+            _ac.SaveChanges();
+
+        }
+
+        public Auction GetById(int id) {
+            var auction = _ac.Auctions.SingleOrDefault(a => a.AuctionId == id);
+
+            if (auction == null) {
+                throw new NullReferenceException();
+            }
+
+            return auction;
+
         }
     }
 }
