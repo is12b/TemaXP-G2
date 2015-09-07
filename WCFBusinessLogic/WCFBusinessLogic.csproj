@@ -60,6 +60,7 @@
     <Compile Include="DB\IAuctionDB.cs" />
     <Compile Include="DB\IBidDb.cs" />
     <Compile Include="DB\ILotDb.cs" />
+    <Compile Include="DB\LotDb.cs" />
     <Compile Include="Helper\Helper.cs" />
     <Compile Include="Migrations\201509040719413_InitialCreate.cs" />
     <Compile Include="Migrations\201509040719413_InitialCreate.Designer.cs">
@@ -68,6 +69,10 @@
     <Compile Include="Migrations\201509040753375_Datacontracts + constraints.cs" />
     <Compile Include="Migrations\201509040753375_Datacontracts + constraints.Designer.cs">
       <DependentUpon>201509040753375_Datacontracts + constraints.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509070911373_Lot changed.cs" />
+    <Compile Include="Migrations\201509070911373_Lot changed.Designer.cs">
+      <DependentUpon>201509070911373_Lot changed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ArtPiece.cs" />
@@ -93,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201509040753375_Datacontracts + constraints.resx">
       <DependentUpon>201509040753375_Datacontracts + constraints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509070911373_Lot changed.resx">
+      <DependentUpon>201509070911373_Lot changed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

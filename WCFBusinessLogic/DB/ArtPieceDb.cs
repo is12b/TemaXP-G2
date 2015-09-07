@@ -1,29 +1,53 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using WCFBusinessLogic.Model;
 
 namespace WCFBusinessLogic.DB {
     public class ArtPieceDb : IArtPieceDb {
 
-        //private Art
-        //public ArtPieceDb()
+        private AuctionContext _ac;
+
+        public ArtPieceDb(AuctionContext context) {
+            _ac = context;
+        }
+
+        public ArtPieceDb() {
+            _ac = new AuctionContext();
+        }
+
         public void Add(ArtPiece art) {
-            throw new System.NotImplementedException();
+            _ac.ArtPieces.Add(art);
+            _ac.SaveChanges();
         }
 
         public List<ArtPiece> GetAll() {
-            throw new System.NotImplementedException();
+            var list = _ac.ArtPieces.ToList();
+            return list;
         }
 
-        public void Update(ArtPiece auc) {
-            throw new System.NotImplementedException();
+        public void Update(ArtPiece art) {
+            try {
+                //_ac.Auctions.Attach(auc);
+                _ac.Entry(art).State = EntityState.Modified;
+                _ac.SaveChanges();
+            }
+            catch (Exception e) {
+                Console.WriteLine(e);
+            }
         }
 
         public void Delete(int id) {
-            throw new System.NotImplementedException();
+            _ac.ArtPieces.Remove(new ArtPiece() {
+                ArtPieceId = id
+            });
+            _ac.SaveChanges();
         }
 
         public ArtPiece GetById(int id) {
-            throw new System.NotImplementedException();
+            var art = _ac.ArtPieces.SingleOrDefault(a => a.ArtPieceId == id);
+            return art;
         }
     }
 }

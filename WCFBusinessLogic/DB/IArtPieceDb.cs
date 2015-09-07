@@ -11,7 +11,7 @@ namespace WCFBusinessLogic.DB {
 
         List<ArtPiece> GetAll();
 
-        void Update(ArtPiece auc);
+        void Update(ArtPiece art);
 
         void Delete(int id);
 

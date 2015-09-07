@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -10,8 +11,7 @@ using WCFBusinessLogic.Model;
 
 namespace UnitTest {
     [TestClass]
-    public class ArtPieceTest {
-
+    public class LotDbTest {
         #region Init
 
         private Mock<DbSet<Auction>> _auctionMock;
@@ -24,8 +24,7 @@ namespace UnitTest {
         private Auction _auction;
 
         [TestInitialize]
-        public void Initialize() {
-        }
+        public void Initialize() {}
 
 
         private void Test() {
@@ -51,7 +50,8 @@ namespace UnitTest {
                 LotId = 1,
                 MinBid = 20,
                 Position = 1,
-                ArtPiece = _artPiece
+                ArtPiece = _artPiece,
+                AuctionId =  1
             };
 
             _auction = new Auction {
@@ -61,21 +61,21 @@ namespace UnitTest {
                 LotDuration = TimeSpan.FromMinutes(30),
                 Multiplier = 3,
                 Status = Status.Ready,
-                Lots = new List<Lot>() { _lot }
+                Lots = new List<Lot>() {_lot}
             };
 
+            _lot.Auction = _auction;
 
 
 
-            var data = new List<ArtPiece> 
-            { 
-                _artPiece
+            var data = new List<Lot> {
+                _lot
             }.AsQueryable();
 
-            _artPieceMock.As<IQueryable<ArtPiece>>().Setup(m => m.Provider).Returns(data.Provider);
-            _artPieceMock.As<IQueryable<ArtPiece>>().Setup(m => m.Expression).Returns(data.Expression);
-            _artPieceMock.As<IQueryable<ArtPiece>>().Setup(m => m.ElementType).Returns(data.ElementType);
-            _artPieceMock.As<IQueryable<ArtPiece>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+            _lotMock.As<IQueryable<Lot>>().Setup(m => m.Provider).Returns(data.Provider);
+            _lotMock.As<IQueryable<Lot>>().Setup(m => m.Expression).Returns(data.Expression);
+            _lotMock.As<IQueryable<Lot>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            _lotMock.As<IQueryable<Lot>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
 
         }
 
@@ -85,28 +85,30 @@ namespace UnitTest {
         public void AddTest() {
             try {
                 Test();
-                var artPieceCtr = new ArtPieceDb(_mockContext.Object);
+                var lotCtr = new LotDb(_mockContext.Object);
 
-                artPieceCtr.Add(_artPiece);
+                lotCtr.Add(_lot);
 
-                _artPieceMock.Verify(m => m.Add(It.IsAny<ArtPiece>()), Times.Once());
+                _lotMock.Verify(m => m.Add(It.IsAny<Lot>()), Times.Once());
                 _mockContext.Verify(m => m.SaveChanges(), Times.Once());
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 Console.WriteLine(e);
                 Assert.Fail();
             }
         }
 
         [TestMethod]
-        public void GetAllTest() {
+        public void GetAllByAuctionTest() {
             try {
                 Test();
-                var artPieceCtr = new ArtPieceDb(_mockContext.Object);
+                var lotCtr = new LotDb(_mockContext.Object);
 
-                var list = artPieceCtr.GetAll();
+                var list = lotCtr.GetAllByAuction(_auction);
 
                 Assert.AreNotEqual(0, list.Count);
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 Console.WriteLine(e);
                 Assert.Fail();
             }
@@ -116,16 +118,17 @@ namespace UnitTest {
         public void UpdateTest() {
             try {
                 Test();
-                var artPieceCtr = new ArtPieceDb(_mockContext.Object);
+                var lotCtr = new LotDb(_mockContext.Object);
 
-                _artPiece.Artist = "Søren";
+                _lot.MinBid = 50;
 
-                artPieceCtr.Update(_artPiece);
+                lotCtr.Update(_lot);
 
-                var list = artPieceCtr.GetAll();
+                var list = lotCtr.GetAllByAuction(_auction);
 
-                Assert.AreEqual("Søren", list[0].Artist);
-            } catch (Exception e) {
+                Assert.AreEqual(50, list[0].MinBid);
+            }
+            catch (Exception e) {
                 Console.WriteLine(e);
                 Assert.Fail();
             }
@@ -135,15 +138,16 @@ namespace UnitTest {
         public void DeleteTest() {
             try {
                 Test();
-                var artPieceCtr = new ArtPieceDb(_mockContext.Object);
+                var lotCtr = new LotDb(_mockContext.Object);
 
-                artPieceCtr.Delete(_auction.AuctionId);
+                lotCtr.Delete(_lot.LotId);
 
-                _artPieceMock.Verify(m => m.Remove(It.IsAny<ArtPiece>()), Times.Once);
+                _lotMock.Verify(m => m.Remove(It.IsAny<Lot>()), Times.Once);
                 _mockContext.Verify(m => m.SaveChanges(), Times.Once);
 
                 Assert.IsTrue(true);
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 e.DebugGetLine();
                 Assert.Fail();
             }
@@ -154,21 +158,24 @@ namespace UnitTest {
             bool test = false;
             try {
                 Test();
-                var artPieceCtr = new ArtPieceDb(_mockContext.Object);
+                var lotCtr = new LotDb(_mockContext.Object);
 
-                var ap = artPieceCtr.GetById(1);
+                var lot = lotCtr.GetById(1);
 
                 test = true;
 
-                artPieceCtr.GetById(2);
+                lotCtr.GetById(2);
 
-            } catch (NullReferenceException) {
+            }
+            catch (NullReferenceException) {
                 if (!test) {
                     Assert.Fail();
-                } else {
+                }
+                else {
                     Assert.IsTrue(true);
                 }
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 e.DebugGetLine();
                 Assert.Fail();
             }

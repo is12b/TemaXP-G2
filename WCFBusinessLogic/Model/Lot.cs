@@ -48,5 +48,11 @@ namespace WCFBusinessLogic.Model {
             get;
             set;
         }
+
+        [DataMember]
+        public Auction Auction { get; set; }
+
+        [DataMember]
+        public int AuctionId { get; set; }
     }
 }
