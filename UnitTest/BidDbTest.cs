@@ -10,7 +10,7 @@ using WCFBusinessLogic.Helper;
 using WCFBusinessLogic.Model;
 
 namespace UnitTest {
-  
+
     [TestClass]
     public class BidDbTest {
 
@@ -85,7 +85,9 @@ namespace UnitTest {
 
             Bid bid = new Bid() {
                 Amount = 20,
-                Bidder = new Member() { MemberId = 1 },
+                Bidder = new Member() {
+                    MemberId = 1
+                },
                 BidId = 1
             };
 
@@ -113,6 +115,7 @@ namespace UnitTest {
             _auctionMock.AddQueryData(new List<Auction> { _auction, _bidAuction }.AsQueryable());
             _bidMock.AddQueryData(new List<Bid> { bid }.AsQueryable());
             _lotMock.AddQueryData(new List<Lot> { _bidLot, _lot }.AsQueryable());
+
         }
 
         #endregion
@@ -125,7 +128,9 @@ namespace UnitTest {
 
                 bidCtr.Add(new Bid() {
                     Amount = 20,
-                    Bidder = new Member() {MemberId = 2},
+                    Bidder = new Member() {
+                        MemberId = 2
+                    },
                     BidId = 2,
                     LotId = _bidLot.LotId
                 });
@@ -134,8 +139,7 @@ namespace UnitTest {
                 _bidMock.Verify(m => m.Add(It.IsAny<Bid>()), Times.Once);
                 _mockContext.Verify(m => m.SaveChanges(), Times.Once);
                 Assert.IsTrue(true);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 e.DebugGetLine();
                 Assert.Fail();
             }
@@ -146,21 +150,19 @@ namespace UnitTest {
             try {
                 Test();
                 var bidCtr = new BidDb(_mockContext.Object);
-                
+
                 var list = bidCtr.GetAllByLot(_bidLot);
 
                 if (list.Count > 0) {
                     Assert.IsTrue(true);
-                }
-                else {
+                } else {
                     Assert.Fail();
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 e.DebugGetLine();
                 Assert.Fail();
             }
         }
-        
+
     }
 }
