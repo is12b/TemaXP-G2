@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Text.RegularExpressions;
-using WCFBusinessLogic.Controller;
+using WCFBusinessLogic.DB;
 using WCFBusinessLogic.Model;
 
 
@@ -13,7 +13,7 @@ namespace WCFService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "AuctionService" in both code and config file together.
     public class AuctionService : IAuctionService {
-        private AuctionController _ctr = new AuctionController();
+        private AuctionDb _ctr = new AuctionDb();
 
         public void Add(Auction auction) {
             String regName = "^[a - zA - Z0 - 9]{ 4,10}$";
