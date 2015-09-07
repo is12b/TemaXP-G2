@@ -70,12 +70,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AuctionDbTest.cs" />
     <Compile Include="ArtPieceTest.cs" />
-    <Compile Include="Service References\AuctionReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="WCFService\AuctionServiceTest.cs" />
+    <Compile Include="MemberDbTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WCFBusinessLogic\WCFBusinessLogic.csproj">
@@ -88,34 +83,12 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\WCFBusinessLogic.Model.Auction.datasource" />
     <None Include="Properties\DataSources\WCFService.CompositeType.datasource" />
-    <None Include="Service References\AuctionReference\service.wsdl" />
-    <None Include="Service References\AuctionReference\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\AuctionReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\AuctionReference\WCFBusinessLogic.Model.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\AuctionReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AuctionReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AuctionReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AuctionReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <Folder Include="WCFService\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

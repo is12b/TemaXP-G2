@@ -24,6 +24,9 @@
   <xs:complexType name="Lot">
     <xs:sequence>
       <xs:element minOccurs="0" name="ArtPiece" nillable="true" type="tns:ArtPiece" />
+      <xs:element minOccurs="0" name="Auction" nillable="true" type="tns:Auction" />
+      <xs:element minOccurs="0" name="AuctionId" type="xs:int" />
+      <xs:element minOccurs="0" name="Bids" nillable="true" type="tns:ArrayOfBid" />
       <xs:element minOccurs="0" name="LotId" type="xs:int" />
       <xs:element minOccurs="0" name="MinBid" type="xs:int" />
       <xs:element minOccurs="0" name="Position" type="xs:int" />
@@ -46,6 +49,37 @@
     <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="ArtPiece" nillable="true" type="tns:ArtPiece" />
+  <xs:complexType name="ArrayOfBid">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Bid" nillable="true" type="tns:Bid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBid" nillable="true" type="tns:ArrayOfBid" />
+  <xs:complexType name="Bid">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:int" />
+      <xs:element minOccurs="0" name="BidId" type="xs:int" />
+      <xs:element minOccurs="0" name="Bidder" nillable="true" type="tns:Member" />
+      <xs:element minOccurs="0" name="Lot" nillable="true" type="tns:Lot" />
+      <xs:element minOccurs="0" name="LotId" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Bid" nillable="true" type="tns:Bid" />
+  <xs:complexType name="Member">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cpr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Department" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MemberId" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Member" nillable="true" type="tns:Member" />
   <xs:simpleType name="Status">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Ready" />

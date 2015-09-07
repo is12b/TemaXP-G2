@@ -4,8 +4,6 @@ using System.Data.Entity;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using UnitTest.AuctionReference;
-using WCFBusinessLogic.Model;
 
 
 namespace UnitTest.WCFService
