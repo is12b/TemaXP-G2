@@ -104,6 +104,7 @@ namespace AdminClient
             int id = 0;
             if (countRows == 1) {
                 DataGridViewRow row = this.dataGridView1.SelectedRows[0];
+                Console.WriteLine("row"+id);
                 id = Convert.ToInt32(row.Cells["artPieceIdDataGridViewTextBoxColumn"].Value);
                 
             }
