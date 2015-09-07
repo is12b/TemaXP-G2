@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="DB\ArtPieceDb.cs" />
     <Compile Include="DB\AuctionDB.cs" />
+    <Compile Include="DB\BidDb.cs" />
     <Compile Include="DB\IArtPieceDb.cs" />
     <Compile Include="DB\IAuctionDB.cs" />
     <Compile Include="DB\IBidDb.cs" />
@@ -73,6 +74,10 @@
     <Compile Include="Migrations\201509070911373_Lot changed.cs" />
     <Compile Include="Migrations\201509070911373_Lot changed.Designer.cs">
       <DependentUpon>201509070911373_Lot changed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509070948034_Bid changed.cs" />
+    <Compile Include="Migrations\201509070948034_Bid changed.Designer.cs">
+      <DependentUpon>201509070948034_Bid changed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ArtPiece.cs" />
@@ -101,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201509070911373_Lot changed.resx">
       <DependentUpon>201509070911373_Lot changed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509070948034_Bid changed.resx">
+      <DependentUpon>201509070948034_Bid changed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -60,6 +60,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BidDbTest.cs" />
     <Compile Include="LotDbTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AuctionDbTest.cs" />

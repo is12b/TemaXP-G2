@@ -10,6 +10,6 @@ namespace WCFBusinessLogic.DB {
 
         void Add(Bid bid);
 
-        List<Bid> GetAllByLot();
+        List<Bid> GetAllByLot(Lot lot);
     }
 }
