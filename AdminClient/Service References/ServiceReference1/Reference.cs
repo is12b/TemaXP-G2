@@ -32,7 +32,10 @@ namespace AdminClient.ServiceReference1 {
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> LotIdField;
+        private AdminClient.ServiceReference1.Lot LotField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LotIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -96,7 +99,20 @@ namespace AdminClient.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> LotId {
+        public AdminClient.ServiceReference1.Lot Lot {
+            get {
+                return this.LotField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LotField, value) != true)) {
+                    this.LotField = value;
+                    this.RaisePropertyChanged("Lot");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int LotId {
             get {
                 return this.LotIdField;
             }
@@ -156,147 +172,6 @@ namespace AdminClient.ServiceReference1 {
                 if ((this.PurchasePriceField.Equals(value) != true)) {
                     this.PurchasePriceField = value;
                     this.RaisePropertyChanged("PurchasePrice");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Auction", Namespace="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model", IsReference=true)]
-    [System.SerializableAttribute()]
-    public partial class Auction : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int AuctionIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AuctionNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime CreationDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.TimeSpan LotDurationField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<AdminClient.ServiceReference1.Lot> LotsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int MultiplierField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AdminClient.ServiceReference1.Status StatusField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AuctionId {
-            get {
-                return this.AuctionIdField;
-            }
-            set {
-                if ((this.AuctionIdField.Equals(value) != true)) {
-                    this.AuctionIdField = value;
-                    this.RaisePropertyChanged("AuctionId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AuctionName {
-            get {
-                return this.AuctionNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AuctionNameField, value) != true)) {
-                    this.AuctionNameField = value;
-                    this.RaisePropertyChanged("AuctionName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CreationDate {
-            get {
-                return this.CreationDateField;
-            }
-            set {
-                if ((this.CreationDateField.Equals(value) != true)) {
-                    this.CreationDateField = value;
-                    this.RaisePropertyChanged("CreationDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.TimeSpan LotDuration {
-            get {
-                return this.LotDurationField;
-            }
-            set {
-                if ((this.LotDurationField.Equals(value) != true)) {
-                    this.LotDurationField = value;
-                    this.RaisePropertyChanged("LotDuration");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<AdminClient.ServiceReference1.Lot> Lots {
-            get {
-                return this.LotsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LotsField, value) != true)) {
-                    this.LotsField = value;
-                    this.RaisePropertyChanged("Lots");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Multiplier {
-            get {
-                return this.MultiplierField;
-            }
-            set {
-                if ((this.MultiplierField.Equals(value) != true)) {
-                    this.MultiplierField = value;
-                    this.RaisePropertyChanged("Multiplier");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AdminClient.ServiceReference1.Status Status {
-            get {
-                return this.StatusField;
-            }
-            set {
-                if ((this.StatusField.Equals(value) != true)) {
-                    this.StatusField = value;
-                    this.RaisePropertyChanged("Status");
                 }
             }
         }
@@ -468,18 +343,145 @@ namespace AdminClient.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Status", Namespace="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model")]
-    public enum Status : int {
+    [System.Runtime.Serialization.DataContractAttribute(Name="Auction", Namespace="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class Auction : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Ready = 0,
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Ongoing = 1,
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AuctionIdField;
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Complete = 2,
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AuctionNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreationDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.TimeSpan LotDurationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<AdminClient.ServiceReference1.Lot> LotsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MultiplierField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AdminClient.ServiceReference1.Status StatusField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AuctionId {
+            get {
+                return this.AuctionIdField;
+            }
+            set {
+                if ((this.AuctionIdField.Equals(value) != true)) {
+                    this.AuctionIdField = value;
+                    this.RaisePropertyChanged("AuctionId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AuctionName {
+            get {
+                return this.AuctionNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AuctionNameField, value) != true)) {
+                    this.AuctionNameField = value;
+                    this.RaisePropertyChanged("AuctionName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.TimeSpan LotDuration {
+            get {
+                return this.LotDurationField;
+            }
+            set {
+                if ((this.LotDurationField.Equals(value) != true)) {
+                    this.LotDurationField = value;
+                    this.RaisePropertyChanged("LotDuration");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<AdminClient.ServiceReference1.Lot> Lots {
+            get {
+                return this.LotsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LotsField, value) != true)) {
+                    this.LotsField = value;
+                    this.RaisePropertyChanged("Lots");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Multiplier {
+            get {
+                return this.MultiplierField;
+            }
+            set {
+                if ((this.MultiplierField.Equals(value) != true)) {
+                    this.MultiplierField = value;
+                    this.RaisePropertyChanged("Multiplier");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AdminClient.ServiceReference1.Status Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -589,6 +591,20 @@ namespace AdminClient.ServiceReference1 {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Status", Namespace="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model")]
+    public enum Status : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ready = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ongoing = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Complete = 2,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -765,6 +781,12 @@ namespace AdminClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArtPieceService/GetArtPieceById", ReplyAction="http://tempuri.org/IArtPieceService/GetArtPieceByIdResponse")]
         System.Threading.Tasks.Task<AdminClient.ServiceReference1.ArtPiece> GetArtPieceByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArtPieceService/GetAllAvilableArtPieces", ReplyAction="http://tempuri.org/IArtPieceService/GetAllAvilableArtPiecesResponse")]
+        System.Collections.Generic.List<AdminClient.ServiceReference1.ArtPiece> GetAllAvilableArtPieces();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArtPieceService/GetAllAvilableArtPieces", ReplyAction="http://tempuri.org/IArtPieceService/GetAllAvilableArtPiecesResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AdminClient.ServiceReference1.ArtPiece>> GetAllAvilableArtPiecesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -832,6 +854,14 @@ namespace AdminClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task<AdminClient.ServiceReference1.ArtPiece> GetArtPieceByIdAsync(int id) {
             return base.Channel.GetArtPieceByIdAsync(id);
+        }
+        
+        public System.Collections.Generic.List<AdminClient.ServiceReference1.ArtPiece> GetAllAvilableArtPieces() {
+            return base.Channel.GetAllAvilableArtPieces();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AdminClient.ServiceReference1.ArtPiece>> GetAllAvilableArtPiecesAsync() {
+            return base.Channel.GetAllAvilableArtPiecesAsync();
         }
     }
     

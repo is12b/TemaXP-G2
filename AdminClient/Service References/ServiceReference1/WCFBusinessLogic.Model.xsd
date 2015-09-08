@@ -6,7 +6,8 @@
       <xs:element minOccurs="0" name="ArtPieceId" type="xs:int" />
       <xs:element minOccurs="0" name="Artist" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LotId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Lot" nillable="true" type="tns:Lot" />
+      <xs:element minOccurs="0" name="LotId" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Number" type="xs:int" />
       <xs:element minOccurs="0" name="PictureUrl" nillable="true" type="xs:string" />
@@ -16,12 +17,21 @@
     <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="ArtPiece" nillable="true" type="tns:ArtPiece" />
-  <xs:complexType name="ArrayOfArtPiece">
+  <xs:complexType name="Lot">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArtPiece" nillable="true" type="tns:ArtPiece" />
+      <xs:element minOccurs="0" name="ArtPiece" nillable="true" type="tns:ArtPiece" />
+      <xs:element minOccurs="0" name="ArtPieceId" type="xs:int" />
+      <xs:element minOccurs="0" name="Auction" nillable="true" type="tns:Auction" />
+      <xs:element minOccurs="0" name="AuctionId" type="xs:int" />
+      <xs:element minOccurs="0" name="Bids" nillable="true" type="tns:ArrayOfBid" />
+      <xs:element minOccurs="0" name="LotId" type="xs:int" />
+      <xs:element minOccurs="0" name="MinBid" type="xs:int" />
+      <xs:element minOccurs="0" name="Position" type="xs:int" />
     </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
-  <xs:element name="ArrayOfArtPiece" nillable="true" type="tns:ArrayOfArtPiece" />
+  <xs:element name="Lot" nillable="true" type="tns:Lot" />
   <xs:complexType name="Auction">
     <xs:sequence>
       <xs:element minOccurs="0" name="AuctionId" type="xs:int" />
@@ -42,21 +52,14 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfLot" nillable="true" type="tns:ArrayOfLot" />
-  <xs:complexType name="Lot">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ArtPiece" nillable="true" type="tns:ArtPiece" />
-      <xs:element minOccurs="0" name="ArtPieceId" type="xs:int" />
-      <xs:element minOccurs="0" name="Auction" nillable="true" type="tns:Auction" />
-      <xs:element minOccurs="0" name="AuctionId" type="xs:int" />
-      <xs:element minOccurs="0" name="Bids" nillable="true" type="tns:ArrayOfBid" />
-      <xs:element minOccurs="0" name="LotId" type="xs:int" />
-      <xs:element minOccurs="0" name="MinBid" type="xs:int" />
-      <xs:element minOccurs="0" name="Position" type="xs:int" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="Lot" nillable="true" type="tns:Lot" />
+  <xs:simpleType name="Status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ready" />
+      <xs:enumeration value="Ongoing" />
+      <xs:enumeration value="Complete" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Status" nillable="true" type="tns:Status" />
   <xs:complexType name="ArrayOfBid">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Bid" nillable="true" type="tns:Bid" />
@@ -89,14 +92,12 @@
     <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="Member" nillable="true" type="tns:Member" />
-  <xs:simpleType name="Status">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Ready" />
-      <xs:enumeration value="Ongoing" />
-      <xs:enumeration value="Complete" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="Status" nillable="true" type="tns:Status" />
+  <xs:complexType name="ArrayOfArtPiece">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArtPiece" nillable="true" type="tns:ArtPiece" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArtPiece" nillable="true" type="tns:ArrayOfArtPiece" />
   <xs:complexType name="ArrayOfAuction">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Auction" nillable="true" type="tns:Auction" />

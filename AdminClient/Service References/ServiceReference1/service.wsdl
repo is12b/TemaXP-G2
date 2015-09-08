@@ -37,6 +37,12 @@
   <wsdl:message name="IArtPieceService_GetArtPieceById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetArtPieceByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IArtPieceService_GetAllAvilableArtPieces_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAvilableArtPieces" />
+  </wsdl:message>
+  <wsdl:message name="IArtPieceService_GetAllAvilableArtPieces_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAvilableArtPiecesResponse" />
+  </wsdl:message>
   <wsdl:message name="IAuctionService_AddAuction_InputMessage">
     <wsdl:part name="parameters" element="tns:AddAuction" />
   </wsdl:message>
@@ -141,6 +147,10 @@
     <wsdl:operation name="GetArtPieceById">
       <wsdl:input wsaw:Action="http://tempuri.org/IArtPieceService/GetArtPieceById" message="tns:IArtPieceService_GetArtPieceById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IArtPieceService/GetArtPieceByIdResponse" message="tns:IArtPieceService_GetArtPieceById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAvilableArtPieces">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArtPieceService/GetAllAvilableArtPieces" message="tns:IArtPieceService_GetAllAvilableArtPieces_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArtPieceService/GetAllAvilableArtPiecesResponse" message="tns:IArtPieceService_GetAllAvilableArtPieces_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IAuctionService">
@@ -247,6 +257,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetArtPieceById">
       <soap:operation soapAction="http://tempuri.org/IArtPieceService/GetArtPieceById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAvilableArtPieces">
+      <soap:operation soapAction="http://tempuri.org/IArtPieceService/GetAllAvilableArtPieces" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
