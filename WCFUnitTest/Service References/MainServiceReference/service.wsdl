@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MainService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IArtPieceService_AddArtPiece_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddArtPiece" />
+  </wsdl:message>
+  <wsdl:message name="IArtPieceService_AddArtPiece_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddArtPieceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtPieceService_GetAllArtPieces_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllArtPieces" />
+  </wsdl:message>
+  <wsdl:message name="IArtPieceService_GetAllArtPieces_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllArtPiecesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtPieceService_UpdateArtPiece_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateArtPiece" />
+  </wsdl:message>
+  <wsdl:message name="IArtPieceService_UpdateArtPiece_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateArtPieceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtPieceService_DeleteArtPiece_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArtPiece" />
+  </wsdl:message>
+  <wsdl:message name="IArtPieceService_DeleteArtPiece_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArtPieceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtPieceService_GetArtPieceById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArtPieceById" />
+  </wsdl:message>
+  <wsdl:message name="IArtPieceService_GetArtPieceById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArtPieceByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionService_AddAuction_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAuction" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionService_AddAuction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAuctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionService_UpdateAuction_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAuction" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionService_UpdateAuction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAuctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionService_GetAllAuctions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAuctions" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionService_GetAllAuctions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAuctionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionService_DeleteAuction_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAuction" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionService_DeleteAuction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAuctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionService_GetAuctionById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuctionById" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionService_GetAuctionById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuctionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILotService_AddLot_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddLot" />
+  </wsdl:message>
+  <wsdl:message name="ILotService_AddLot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddLotResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILotService_GetAllLotsByAuction_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLotsByAuction" />
+  </wsdl:message>
+  <wsdl:message name="ILotService_GetAllLotsByAuction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLotsByAuctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILotService_UpdateLot_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLot" />
+  </wsdl:message>
+  <wsdl:message name="ILotService_UpdateLot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLotResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILotService_DeleteLot_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLot" />
+  </wsdl:message>
+  <wsdl:message name="ILotService_DeleteLot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLotResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILotService_GetLotById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLotById" />
+  </wsdl:message>
+  <wsdl:message name="ILotService_GetLotById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLotByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBidService_AddBid_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBid" />
+  </wsdl:message>
+  <wsdl:message name="IBidService_AddBid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBidService_GetAllBidsByLot_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBidsByLot" />
+  </wsdl:message>
+  <wsdl:message name="IBidService_GetAllBidsByLot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBidsByLotResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMemberService_GetAllMembers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMembers" />
+  </wsdl:message>
+  <wsdl:message name="IMemberService_GetAllMembers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMemberService_GetMemberById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberById" />
+  </wsdl:message>
+  <wsdl:message name="IMemberService_GetMemberById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberByIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IArtPieceService">
+    <wsdl:operation name="AddArtPiece">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArtPieceService/AddArtPiece" message="tns:IArtPieceService_AddArtPiece_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArtPieceService/AddArtPieceResponse" message="tns:IArtPieceService_AddArtPiece_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllArtPieces">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArtPieceService/GetAllArtPieces" message="tns:IArtPieceService_GetAllArtPieces_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArtPieceService/GetAllArtPiecesResponse" message="tns:IArtPieceService_GetAllArtPieces_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArtPiece">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArtPieceService/UpdateArtPiece" message="tns:IArtPieceService_UpdateArtPiece_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArtPieceService/UpdateArtPieceResponse" message="tns:IArtPieceService_UpdateArtPiece_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArtPiece">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArtPieceService/DeleteArtPiece" message="tns:IArtPieceService_DeleteArtPiece_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArtPieceService/DeleteArtPieceResponse" message="tns:IArtPieceService_DeleteArtPiece_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArtPieceById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArtPieceService/GetArtPieceById" message="tns:IArtPieceService_GetArtPieceById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArtPieceService/GetArtPieceByIdResponse" message="tns:IArtPieceService_GetArtPieceById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IAuctionService">
+    <wsdl:operation name="AddAuction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionService/AddAuction" message="tns:IAuctionService_AddAuction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionService/AddAuctionResponse" message="tns:IAuctionService_AddAuction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAuction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionService/UpdateAuction" message="tns:IAuctionService_UpdateAuction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionService/UpdateAuctionResponse" message="tns:IAuctionService_UpdateAuction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAuctions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionService/GetAllAuctions" message="tns:IAuctionService_GetAllAuctions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionService/GetAllAuctionsResponse" message="tns:IAuctionService_GetAllAuctions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAuction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionService/DeleteAuction" message="tns:IAuctionService_DeleteAuction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionService/DeleteAuctionResponse" message="tns:IAuctionService_DeleteAuction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuctionById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionService/GetAuctionById" message="tns:IAuctionService_GetAuctionById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionService/GetAuctionByIdResponse" message="tns:IAuctionService_GetAuctionById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ILotService">
+    <wsdl:operation name="AddLot">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILotService/AddLot" message="tns:ILotService_AddLot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILotService/AddLotResponse" message="tns:ILotService_AddLot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLotsByAuction">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILotService/GetAllLotsByAuction" message="tns:ILotService_GetAllLotsByAuction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILotService/GetAllLotsByAuctionResponse" message="tns:ILotService_GetAllLotsByAuction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLot">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILotService/UpdateLot" message="tns:ILotService_UpdateLot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILotService/UpdateLotResponse" message="tns:ILotService_UpdateLot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLot">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILotService/DeleteLot" message="tns:ILotService_DeleteLot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILotService/DeleteLotResponse" message="tns:ILotService_DeleteLot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLotById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILotService/GetLotById" message="tns:ILotService_GetLotById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILotService/GetLotByIdResponse" message="tns:ILotService_GetLotById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IBidService">
+    <wsdl:operation name="AddBid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBidService/AddBid" message="tns:IBidService_AddBid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBidService/AddBidResponse" message="tns:IBidService_AddBid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBidsByLot">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBidService/GetAllBidsByLot" message="tns:IBidService_GetAllBidsByLot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBidService/GetAllBidsByLotResponse" message="tns:IBidService_GetAllBidsByLot_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IMemberService">
+    <wsdl:operation name="GetAllMembers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberService/GetAllMembers" message="tns:IMemberService_GetAllMembers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberService/GetAllMembersResponse" message="tns:IMemberService_GetAllMembers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberService/GetMemberById" message="tns:IMemberService_GetMemberById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberService/GetMemberByIdResponse" message="tns:IMemberService_GetMemberById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IArtPieceService" type="tns:IArtPieceService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddArtPiece">
+      <soap:operation soapAction="http://tempuri.org/IArtPieceService/AddArtPiece" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllArtPieces">
+      <soap:operation soapAction="http://tempuri.org/IArtPieceService/GetAllArtPieces" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArtPiece">
+      <soap:operation soapAction="http://tempuri.org/IArtPieceService/UpdateArtPiece" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArtPiece">
+      <soap:operation soapAction="http://tempuri.org/IArtPieceService/DeleteArtPiece" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArtPieceById">
+      <soap:operation soapAction="http://tempuri.org/IArtPieceService/GetArtPieceById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IAuctionService" type="tns:IAuctionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddAuction">
+      <soap:operation soapAction="http://tempuri.org/IAuctionService/AddAuction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAuction">
+      <soap:operation soapAction="http://tempuri.org/IAuctionService/UpdateAuction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAuctions">
+      <soap:operation soapAction="http://tempuri.org/IAuctionService/GetAllAuctions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAuction">
+      <soap:operation soapAction="http://tempuri.org/IAuctionService/DeleteAuction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuctionById">
+      <soap:operation soapAction="http://tempuri.org/IAuctionService/GetAuctionById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ILotService" type="tns:ILotService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddLot">
+      <soap:operation soapAction="http://tempuri.org/ILotService/AddLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLotsByAuction">
+      <soap:operation soapAction="http://tempuri.org/ILotService/GetAllLotsByAuction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLot">
+      <soap:operation soapAction="http://tempuri.org/ILotService/UpdateLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLot">
+      <soap:operation soapAction="http://tempuri.org/ILotService/DeleteLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLotById">
+      <soap:operation soapAction="http://tempuri.org/ILotService/GetLotById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IBidService" type="tns:IBidService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddBid">
+      <soap:operation soapAction="http://tempuri.org/IBidService/AddBid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBidsByLot">
+      <soap:operation soapAction="http://tempuri.org/IBidService/GetAllBidsByLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IMemberService" type="tns:IMemberService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllMembers">
+      <soap:operation soapAction="http://tempuri.org/IMemberService/GetAllMembers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberById">
+      <soap:operation soapAction="http://tempuri.org/IMemberService/GetMemberById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MainService">
+    <wsdl:port name="BasicHttpBinding_IArtPieceService" binding="tns:BasicHttpBinding_IArtPieceService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/MainService/ArtPiece" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IAuctionService" binding="tns:BasicHttpBinding_IAuctionService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/MainService/Auction" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ILotService" binding="tns:BasicHttpBinding_ILotService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/MainService/Lot" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IBidService" binding="tns:BasicHttpBinding_IBidService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/MainService/Bid" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IMemberService" binding="tns:BasicHttpBinding_IMemberService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/MainService/Member" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
