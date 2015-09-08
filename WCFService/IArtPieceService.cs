@@ -25,6 +25,9 @@ namespace WCFService
 
         [OperationContract]
         ArtPiece GetArtPieceById(int id);
+
+        [OperationContract]
+        List<ArtPiece> GetAllAvilableArtPieces();
     }
 
 

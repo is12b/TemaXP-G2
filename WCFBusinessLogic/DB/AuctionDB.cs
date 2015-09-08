@@ -30,6 +30,14 @@ namespace WCFBusinessLogic.DB {
 
             _ac.Auctions.Add(ac);
             _ac.DebugSaveChanges();
+
+            foreach (var lot in ac.Lots) {
+                lot.ArtPiece.LotId = lot.LotId;
+                _ac.Entry(lot.ArtPiece).State = EntityState.Modified;
+            }
+
+            _ac.DebugSaveChanges();
+
         }
 
         public List<Auction> GetAll() {

@@ -49,5 +49,12 @@ namespace WCFBusinessLogic.DB {
             var art = _ac.ArtPieces.SingleOrDefault(a => a.ArtPieceId == id);
             return art;
         }
+
+
+        public List<ArtPiece> GetAllAvilableArtPieces() {
+            var art = _ac.ArtPieces.Where(a => a.LotId == 0).ToList();
+
+            return art;
+        }
     }
 }
