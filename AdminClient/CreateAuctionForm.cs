@@ -13,7 +13,9 @@ using WCFBusinessLogic.Helper;
 namespace AdminClient {
     public partial class CreateAuctionForm : Form {
         public List<ArtPiece> _artPieces { get; set; }
-        public ServiceReference1.IAuctionService auctionClient;
+        public ServiceReference1.IAuctionService _auctionClient;
+        public ServiceReference1.IArtPieceService _artPieceClient;
+        public ServiceReference1.ILotService _lotClient;
         public CreateAuctionForm() {
 
             InitializeComponent();
@@ -22,7 +24,9 @@ namespace AdminClient {
 
         private void FakeArtPieces() {
 
-            auctionClient = new AuctionServiceClient();
+            _auctionClient = new AuctionServiceClient();
+            _artPieceClient = new ArtPieceServiceClient();
+            _lotClient = new LotServiceClient();
 
             List<ArtPiece> ArtPieces = new List<ArtPiece>();
 
@@ -82,9 +86,15 @@ namespace AdminClient {
         }
 
         private void BindArtPieces() {
-            if (this._artPieces == null) {
-                this.FakeArtPieces();
+            //if (this._artPieces == null) {
+            //    this.FakeArtPieces();
+            //}
+
+            _artPieces = _artPieceClient.GetAllArtPieces().ToList();
+            foreach (var ap in _artPieces) {
+              //  if(ap.)
             }
+
             foreach (ArtPiece ap in this._artPieces) {
                 Console.WriteLine("Item:" + ap.ArtPieceId);
             }
@@ -144,7 +154,7 @@ namespace AdminClient {
 
 
 
-        private void button3_Click(object sender, EventArgs e) {
+        private void button_Up(object sender, EventArgs e) {
             int countRows = this.dataGridView1.SelectedRows.Count;
             int index = 0;
             if (countRows == 1) {
@@ -160,7 +170,7 @@ namespace AdminClient {
 
         }
 
-        private void button4_Click(object sender, EventArgs e) {
+        private void button_Down(object sender, EventArgs e) {
             int countRows = this.dataGridView1.SelectedRows.Count;
             int index = 0;
             if (countRows == 1) {
@@ -177,7 +187,7 @@ namespace AdminClient {
             }
         }
 
-        private void button1_Click(object sender, EventArgs e) {
+        private void button_Save(object sender, EventArgs e) {
             //Gem auktion
             try {
                 if (AuctionNameTextBox.Text.Length == 0) {
@@ -238,14 +248,14 @@ namespace AdminClient {
                     Status = Status.Ready,
                 };
 
-                auctionClient.AddAuction(a);
+                _auctionClient.AddAuction(a);
 
             } catch (Exception ex) {
                 ex.DebugGetLine();
             }
         }
 
-        private void button2_Click(object sender, EventArgs e) {
+        private void button_SelectAll(object sender, EventArgs e) {
             //check alle bokse
             foreach (ArtPiece ap in _artPieces) {
                 ap.Checked = true;
