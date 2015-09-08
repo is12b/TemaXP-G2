@@ -40,4 +40,12 @@ namespace WCFService
             return _ctr.GetAll();
         }
     }
+
+    public class ArtPieceService : IArtPieceService
+    {
+        public void Add(ArtPiece piece)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
