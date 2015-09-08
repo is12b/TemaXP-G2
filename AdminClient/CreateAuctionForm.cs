@@ -19,70 +19,12 @@ namespace AdminClient {
         public CreateAuctionForm() {
 
             InitializeComponent();
-            this.BindArtPieces();
-        }
-
-        private void FakeArtPieces() {
-
             _auctionClient = new AuctionServiceClient();
             _artPieceClient = new ArtPieceServiceClient();
             _lotClient = new LotServiceClient();
 
             List<ArtPiece> ArtPieces = new List<ArtPiece>();
-
-            ArtPiece ap1 = new ArtPiece();
-            ap1.ArtPieceId = 1;
-            ap1.Name = "Arpiece 1";
-            ap1.Number = 1234;
-            ap1.Artist = "Artist1";
-            ap1.PurchasePrice = 125;
-            ap1.PictureUrl = "";
-            ap1.Description = @"Lorem ipsum dolor";
-
-
-            ArtPiece ap2 = new ArtPiece();
-            ap2.ArtPieceId = 2;
-            ap2.Name = "Arpiece 2";
-            ap2.Number = 1234;
-            ap2.Artist = "Artist2";
-            ap2.PurchasePrice = 125;
-            ap2.PictureUrl = "";
-            ap2.Description = @"Lorem ipsum dolor";
-
-            ArtPiece ap3 = new ArtPiece();
-            ap3.ArtPieceId = 3;
-            ap3.Name = "Arpiece 3";
-            ap3.Number = 1234;
-            ap3.Artist = "Artist3";
-            ap3.PurchasePrice = 125;
-            ap3.PictureUrl = "";
-            ap3.Description = @"Lorem ipsum dolor";
-            
-            ArtPiece ap4 = new ArtPiece();
-            ap4.ArtPieceId = 4;
-            ap4.Name = "Arpiece 4";
-            ap4.Number = 1234;
-            ap4.Artist = "Artist4";
-            ap4.PurchasePrice = 125;
-            ap4.PictureUrl = "";
-            ap4.Description = @"Lorem ipsum dolor";
-
-            ArtPiece ap5 = new ArtPiece();
-            ap5.ArtPieceId = 5;
-            ap5.Name = "Arpiece 5";
-            ap5.Number = 1234;
-            ap5.Artist = "Artist5";
-            ap5.PurchasePrice = 125;
-            ap5.PictureUrl = "";
-            ap5.Description = @"Lorem ipsum dolor";
-
-            ArtPieces.Add(ap1);
-            ArtPieces.Add(ap2);
-            ArtPieces.Add(ap3);
-            ArtPieces.Add(ap4);
-            ArtPieces.Add(ap5);
-
-            this._artPieces = ArtPieces;
+            this.BindArtPieces();
         }
 
         private void BindArtPieces() {
@@ -90,9 +32,11 @@ namespace AdminClient {
             //    this.FakeArtPieces();
             //}
 
-            _artPieces = _artPieceClient.GetAllArtPieces().ToList();
+            _artPieces = _artPieceClient.GetAllArtPieces();
             foreach (var ap in _artPieces) {
-              //  if(ap.)
+                if (ap.LotId > 0) {
+                    _artPieces.Remove(ap);
+                }
             }
 
             foreach (ArtPiece ap in this._artPieces) {
@@ -244,11 +188,17 @@ namespace AdminClient {
                     AuctionName = AuctionNameTextBox.Text,
                     LotDuration = ts,
                     Multiplier = Int32.Parse(AuctionMultipler.Value.ToString()),
-                    Lots = lots.ToArray(),
+                    Lots = lots,
                     Status = Status.Ready,
                 };
-
-                _auctionClient.AddAuction(a);
+                try {
+                    _auctionClient.AddAuction(a);
+                    MessageBox.Show("Auktionen blev oprettet!");
+                    this.Dispose();
+                } catch (Exception ex) {
+                    ex.DebugGetLine();
+                    MessageBox.Show("Der opstod en fejl, prøv igen!");
+                }
 
             } catch (Exception ex) {
                 ex.DebugGetLine();

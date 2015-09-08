@@ -32,10 +32,9 @@ namespace WCFBusinessLogic.Model {
         [Range(0, 9999)]
         [Required]
          public int PurchasePrice { get; set; }
+
         [DataMember]
-        public Lot Lot { get; set; }
-        [DataMember]
-        public int LotId { get; set; }
+        public int? LotId { get; set; }
 
     }
 }

@@ -44,6 +44,10 @@ namespace WCFBusinessLogic.Model {
         }
 
         [DataMember]
+        [Required]
+        public int ArtPieceId { get; set; }
+
+        [DataMember]
         public List<Bid> Bids {
             get;
             set;
