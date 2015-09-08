@@ -9,9 +9,9 @@ namespace UnitTest
     [TestClass]
     public class SetUpDB
     {
-        /*
+        
         [TestMethod]
-        public void TestMethod1()
+        public void DatabaseCreatedTest()
         {
             try
             {
@@ -26,6 +26,6 @@ namespace UnitTest
                 e.DebugGetLine();
                 Assert.Fail();
             }
-        }*/
+        }
     }
 }
