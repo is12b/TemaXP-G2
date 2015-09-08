@@ -8,30 +8,64 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 
 namespace WCFBusinessLogic.Model {
-    [DataContract(IsReference = true) ]
-     public class ArtPiece {
+    [DataContract(IsReference = true)]
+    public class ArtPiece {
+
         [DataMember]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-         public int ArtPieceId { get; set; }
+        public int ArtPieceId {
+            get;
+            set;
+        }
+
         [DataMember]
         [Required]
-         public int Number { get; set; }
+        public int Number {
+            get;
+            set;
+        }
+
         [DataMember]
         [Required]
         [MaxLength(40), MinLength(1)]
-         public string Name { get; set; }
+        public string Name {
+            get;
+            set;
+        }
+
         [DataMember]
         [MaxLength(80)]
-         public string Description { get; set; }
+        public string Description {
+            get;
+            set;
+        }
+
         [DataMember]
         [MaxLength(40)]
-         public string Artist { get; set; }
+        public string Artist {
+            get;
+            set;
+        }
+
         [DataMember]
-         public string PictureUrl { get; set; }
+        public string PictureUrl {
+            get;
+            set;
+        }
+
         [DataMember]
         [Range(0, 9999)]
         [Required]
-         public int PurchasePrice { get; set; }
+        public int PurchasePrice {
+            get;
+            set;
+        }
 
+        [ForeignKey("Lot")]
+        [DataMember]
+        public int LotId { get; set; }
+
+        [DataMember]
+        public Lot Lot { get; set; }
     }
 }

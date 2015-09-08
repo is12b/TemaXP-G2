@@ -6,7 +6,6 @@
       <xs:element minOccurs="0" name="ArtPieceId" type="xs:int" />
       <xs:element minOccurs="0" name="Artist" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LotId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Number" type="xs:int" />
       <xs:element minOccurs="0" name="PictureUrl" nillable="true" type="xs:string" />
@@ -45,7 +44,6 @@
   <xs:complexType name="Lot">
     <xs:sequence>
       <xs:element minOccurs="0" name="ArtPiece" nillable="true" type="tns:ArtPiece" />
-      <xs:element minOccurs="0" name="ArtPieceId" type="xs:int" />
       <xs:element minOccurs="0" name="Auction" nillable="true" type="tns:Auction" />
       <xs:element minOccurs="0" name="AuctionId" type="xs:int" />
       <xs:element minOccurs="0" name="Bids" nillable="true" type="tns:ArrayOfBid" />

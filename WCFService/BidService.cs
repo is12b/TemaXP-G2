@@ -10,15 +10,11 @@ namespace WCFService {
     public class BidService : IBidService {
         private IBidDb _bidDb = new BidDb();
         public void AddBid(Bid bid) {
-            if(bid.Amount <= 0)
-                throw new ArgumentException();
+            _bidDb.Add(bid);
         }
 
         public List<Bid> GetAllBidsByLot(Lot lot) {
-            if (lot.Position == 0 || lot.MinBid <= 0)
-                throw new ArgumentException();
-            else
-                return _bidDb.GetAllByLot(lot);
+            return _bidDb.GetAllByLot(lot);
         }
     }
 }

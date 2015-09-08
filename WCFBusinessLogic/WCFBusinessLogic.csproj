@@ -93,6 +93,18 @@
     <Compile Include="Migrations\201509071109408_Member-Add-Point.Designer.cs">
       <DependentUpon>201509071109408_Member-Add-Point.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201509081018060_LotaddedtoArtPiece.cs" />
+    <Compile Include="Migrations\201509081018060_LotaddedtoArtPiece.Designer.cs">
+      <DependentUpon>201509081018060_LotaddedtoArtPiece.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509081056115_FixingsomeArt.cs" />
+    <Compile Include="Migrations\201509081056115_FixingsomeArt.Designer.cs">
+      <DependentUpon>201509081056115_FixingsomeArt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509081102492_FixingsomeArt2.cs" />
+    <Compile Include="Migrations\201509081102492_FixingsomeArt2.Designer.cs">
+      <DependentUpon>201509081102492_FixingsomeArt2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ArtPiece.cs" />
     <Compile Include="Model\Auction.cs" />
@@ -132,12 +144,23 @@
     <EmbeddedResource Include="Migrations\201509071109408_Member-Add-Point.resx">
       <DependentUpon>201509071109408_Member-Add-Point.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509081018060_LotaddedtoArtPiece.resx">
+      <DependentUpon>201509081018060_LotaddedtoArtPiece.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509081056115_FixingsomeArt.resx">
+      <DependentUpon>201509081056115_FixingsomeArt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509081102492_FixingsomeArt2.resx">
+      <DependentUpon>201509081102492_FixingsomeArt2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="cs.config" />
+    <None Include="cs.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="packages.config" />
     <None Include="Service References\ServiceReference1\service.wsdl" />

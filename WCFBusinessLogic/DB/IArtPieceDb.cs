@@ -16,5 +16,7 @@ namespace WCFBusinessLogic.DB {
         void Delete(int id);
 
         ArtPiece GetById(int id);
+
+        List<ArtPiece> GetAllAvilableArtPieces();
     }
 }

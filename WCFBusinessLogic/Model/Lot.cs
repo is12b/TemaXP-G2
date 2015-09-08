@@ -37,11 +37,15 @@ namespace WCFBusinessLogic.Model {
         }
 
         [DataMember]
-        [Required]
         public ArtPiece ArtPiece {
             get;
             set;
         }
+
+        [DataMember]
+        [Key]
+        [ForeignKey("ArtPiece")]
+        public int ArtPieceId { get; set; }
 
         [DataMember]
         public List<Bid> Bids {

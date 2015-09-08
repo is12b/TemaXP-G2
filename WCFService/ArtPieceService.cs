@@ -33,6 +33,10 @@ namespace WCFService {
             return _artDb.GetById(id);
         }
 
+        public List<ArtPiece> GetAllAvilableArtPieces() {
+            return _artDb.GetAllAvilableArtPieces();
+        }
+
         public void UpdateArtPiece(ArtPiece piece) {
             String regName = "^[a - zA - Z0 - 9]{ 4,10}$";
             if (piece.Number <= 0 || piece.Name.Length <= 0)

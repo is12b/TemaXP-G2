@@ -22,8 +22,22 @@ namespace WCFBusinessLogic.DB {
                 throw new Exception("You failed");
             }
 
+            ac.CreationDate = DateTime.Now;
+
+            foreach (var lot in ac.Lots) {
+                _ac.Entry(lot.ArtPiece).State = EntityState.Modified;
+            }
+
             _ac.Auctions.Add(ac);
-            _ac.SaveChanges();
+            _ac.DebugSaveChanges();
+
+            foreach (var lot in ac.Lots) {
+                lot.ArtPiece.LotId = lot.LotId;
+                _ac.Entry(lot.ArtPiece).State = EntityState.Modified;
+            }
+
+            _ac.DebugSaveChanges();
+
         }
 
         public List<Auction> GetAll() {
