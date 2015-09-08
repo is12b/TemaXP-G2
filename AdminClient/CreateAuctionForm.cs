@@ -91,23 +91,48 @@ namespace AdminClient
         }
 
         private void MoveUp(int index) {
-            
-            int toSwapIndex = index - 1;
-            int toSwapWithIndex = toSwapIndex - 1;
-
-            ArtPiece toSwap = this._artPieces[index - 1];
-            ArtPiece toSwapWith = this._artPieces[toSwapWithIndex];
-
-            this._artPieces[toSwapWithIndex] = toSwap;
-            this._artPieces[toSwapIndex] = toSwapWith;
-
-            Console.WriteLine("to swap/toswapwith:" + toSwapIndex + "/" + toSwapWithIndex);
 
 
-            this.BindArtPieces();
+            try
+            {
+                if (index > -1 && index != null)
+                {
+                    int selectedIndex = index - 1;
+                    int swapIndex = selectedIndex - 1;
+                    ArtPiece selectedAP = this._artPieces[selectedIndex];
+                    ArtPiece swapAP = this._artPieces[swapIndex];
+
+                    this._artPieces[swapIndex] = selectedAP;
+                    this._artPieces[selectedIndex] = swapAP;
+                    dataGridView1.Rows[swapIndex].Selected = true;
+
+
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                
+                
+            }
+            //if (index > -1 && index != null) {
+
+            //    int toSwapIndex = index - 1;
+            //    int toSwapWithIndex = toSwapIndex - 1;
+
+            //    ArtPiece toSwap = this._artPieces[index - 1];
+            //    ArtPiece toSwapWith = this._artPieces[toSwapWithIndex];
+
+            //    this._artPieces[toSwapWithIndex] = toSwap;
+            //    this._artPieces[toSwapIndex] = toSwapWith;
+
+            //    Console.WriteLine("to swap/toswapwith:" + toSwapIndex + "/" + toSwapWithIndex);
+
+            //}
 
         }
 
+       
+        
         private void button3_Click(object sender, EventArgs e) {
             int countRows = this.dataGridView1.SelectedRows.Count;
             int id = 0;
@@ -122,6 +147,11 @@ namespace AdminClient
          
             this.dataGridView1.Update();
             this.dataGridView1.Refresh();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // move down
         }
     }
 
