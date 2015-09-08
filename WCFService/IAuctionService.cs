@@ -20,4 +20,5 @@ namespace WCFService
         [OperationContract]
         List<Auction> GetAll();
     }
+   
 }
