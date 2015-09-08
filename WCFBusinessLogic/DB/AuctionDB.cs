@@ -24,6 +24,10 @@ namespace WCFBusinessLogic.DB {
 
             ac.CreationDate = DateTime.Now;
 
+            foreach (var lot in ac.Lots) {
+                _ac.Entry(lot.ArtPiece).State = EntityState.Modified;
+            }
+
             _ac.Auctions.Add(ac);
             _ac.DebugSaveChanges();
         }
