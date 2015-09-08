@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using WCFBusinessLogic.Model;
 
 namespace WCFBusinessLogic.DB {
-    public interface IBidDb {
+    public interface IMemberDb {
 
-        void Add(Bid bid);
+        List<Member> GetAll();
 
-        List<Bid> GetAllByLot(Lot lot);
+        Member GetById(int id);
+
     }
 }

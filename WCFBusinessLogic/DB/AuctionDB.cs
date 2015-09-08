@@ -39,7 +39,8 @@ namespace WCFBusinessLogic.DB {
                 //_ac.Auctions.Attach(auc);
                 _ac.Entry(auc).State = EntityState.Modified;
                 _ac.SaveChanges();
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 Console.WriteLine(e);
             }
 
@@ -49,12 +50,17 @@ namespace WCFBusinessLogic.DB {
             var auction = GetById(id);
 
             List<Lot> lotList = auction.Lots.Where(l => l.Bids.Count == 0).ToList();
-
+            List<Lot> completedLots = auction.Lots.Where(l => l.Bids.Count > 0).ToList();
             if (lotList.Count > 0) {
                 _ac.Lots.RemoveRange(lotList);
             }
 
-            _ac.Auctions.Remove(auction);
+            if (completedLots.Count > 0) {
+                auction.Status = Status.Complete;
+            } else {
+                _ac.Auctions.Remove(auction);
+            }
+
             _ac.SaveChanges();
 
         }

@@ -67,15 +67,15 @@ namespace UnitTest {
 
 
 
-            var data = new List<Auction> 
+            var data = new List<ArtPiece> 
             { 
-                _auction
+                _artPiece
             }.AsQueryable();
 
-            _auctionMock.As<IQueryable<Auction>>().Setup(m => m.Provider).Returns(data.Provider);
-            _auctionMock.As<IQueryable<Auction>>().Setup(m => m.Expression).Returns(data.Expression);
-            _auctionMock.As<IQueryable<Auction>>().Setup(m => m.ElementType).Returns(data.ElementType);
-            _auctionMock.As<IQueryable<Auction>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+            _artPieceMock.As<IQueryable<ArtPiece>>().Setup(m => m.Provider).Returns(data.Provider);
+            _artPieceMock.As<IQueryable<ArtPiece>>().Setup(m => m.Expression).Returns(data.Expression);
+            _artPieceMock.As<IQueryable<ArtPiece>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            _artPieceMock.As<IQueryable<ArtPiece>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
 
         }
 
@@ -85,11 +85,11 @@ namespace UnitTest {
         public void AddTest() {
             try {
                 Test();
-                //var _artPieceCtr = new ArtPieceDb(_mockContext.Object);
+                var artPieceCtr = new ArtPieceDb(_mockContext.Object);
 
-                //_auctionCtr.Add(_auction);
+                artPieceCtr.Add(_artPiece);
 
-                _auctionMock.Verify(m => m.Add(It.IsAny<Auction>()), Times.Once());
+                _artPieceMock.Verify(m => m.Add(It.IsAny<ArtPiece>()), Times.Once());
                 _mockContext.Verify(m => m.SaveChanges(), Times.Once());
             } catch (Exception e) {
                 Console.WriteLine(e);
@@ -101,10 +101,9 @@ namespace UnitTest {
         public void GetAllTest() {
             try {
                 Test();
-                var _auctionCtr = new AuctionDb(_mockContext.Object);
+                var artPieceCtr = new ArtPieceDb(_mockContext.Object);
 
-                var list = _auctionCtr.GetAll();
-                Console.WriteLine(list[0].AuctionName);
+                var list = artPieceCtr.GetAll();
 
                 Assert.AreNotEqual(0, list.Count);
             } catch (Exception e) {
@@ -117,15 +116,15 @@ namespace UnitTest {
         public void UpdateTest() {
             try {
                 Test();
-                var _auctionCtr = new AuctionDb(_mockContext.Object);
+                var artPieceCtr = new ArtPieceDb(_mockContext.Object);
 
-                _auction.AuctionName = "Kage";
+                _artPiece.Artist = "Søren";
 
-                _auctionCtr.Update(_auction);
+                artPieceCtr.Update(_artPiece);
 
-                var list = _auctionCtr.GetAll();
+                var list = artPieceCtr.GetAll();
 
-                Assert.AreEqual("Kage", list[0].AuctionName);
+                Assert.AreEqual("Søren", list[0].Artist);
             } catch (Exception e) {
                 Console.WriteLine(e);
                 Assert.Fail();
@@ -136,12 +135,11 @@ namespace UnitTest {
         public void DeleteTest() {
             try {
                 Test();
-                var _auctionCtr = new AuctionDb(_mockContext.Object);
+                var artPieceCtr = new ArtPieceDb(_mockContext.Object);
 
-                _auctionCtr.Delete(_auction.AuctionId);
+                artPieceCtr.Delete(_auction.AuctionId);
 
-                _lotMock.Verify(m => m.RemoveRange(It.IsAny<List<Lot>>()), Times.Once);
-                _auctionMock.Verify(m => m.Remove(It.IsAny<Auction>()), Times.Once);
+                _artPieceMock.Verify(m => m.Remove(It.IsAny<ArtPiece>()), Times.Once);
                 _mockContext.Verify(m => m.SaveChanges(), Times.Once);
 
                 Assert.IsTrue(true);
@@ -156,13 +154,13 @@ namespace UnitTest {
             bool test = false;
             try {
                 Test();
-                var _auctionCtr = new AuctionDb(_mockContext.Object);
+                var artPieceCtr = new ArtPieceDb(_mockContext.Object);
 
-                var ac = _auctionCtr.GetById(1);
+                var ap = artPieceCtr.GetById(1);
 
                 test = true;
 
-                _auctionCtr.GetById(2);
+                artPieceCtr.GetById(2);
 
             } catch (NullReferenceException) {
                 if (!test) {

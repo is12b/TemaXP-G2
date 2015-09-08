@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="Auction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AuctionId" type="xs:int" />
+      <xs:element minOccurs="0" name="AuctionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LotDuration" type="ser:duration" />
+      <xs:element minOccurs="0" name="Lots" nillable="true" type="tns:ArrayOfLot" />
+      <xs:element minOccurs="0" name="Multiplier" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" type="tns:Status" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Auction" nillable="true" type="tns:Auction" />
+  <xs:complexType name="ArrayOfLot">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lot" nillable="true" type="tns:Lot" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLot" nillable="true" type="tns:ArrayOfLot" />
+  <xs:complexType name="Lot">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArtPiece" nillable="true" type="tns:ArtPiece" />
+      <xs:element minOccurs="0" name="Auction" nillable="true" type="tns:Auction" />
+      <xs:element minOccurs="0" name="AuctionId" type="xs:int" />
+      <xs:element minOccurs="0" name="Bids" nillable="true" type="tns:ArrayOfBid" />
+      <xs:element minOccurs="0" name="LotId" type="xs:int" />
+      <xs:element minOccurs="0" name="MinBid" type="xs:int" />
+      <xs:element minOccurs="0" name="Position" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Lot" nillable="true" type="tns:Lot" />
+  <xs:complexType name="ArtPiece">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArtPieceId" type="xs:int" />
+      <xs:element minOccurs="0" name="Artist" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" type="xs:int" />
+      <xs:element minOccurs="0" name="PictureUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PurchasePrice" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="ArtPiece" nillable="true" type="tns:ArtPiece" />
+  <xs:complexType name="ArrayOfBid">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Bid" nillable="true" type="tns:Bid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBid" nillable="true" type="tns:ArrayOfBid" />
+  <xs:complexType name="Bid">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:int" />
+      <xs:element minOccurs="0" name="BidId" type="xs:int" />
+      <xs:element minOccurs="0" name="Bidder" nillable="true" type="tns:Member" />
+      <xs:element minOccurs="0" name="Lot" nillable="true" type="tns:Lot" />
+      <xs:element minOccurs="0" name="LotId" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Bid" nillable="true" type="tns:Bid" />
+  <xs:complexType name="Member">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cpr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Department" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MemberId" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Member" nillable="true" type="tns:Member" />
+  <xs:simpleType name="Status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ready" />
+      <xs:enumeration value="Ongoing" />
+      <xs:enumeration value="Complete" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Status" nillable="true" type="tns:Status" />
+  <xs:complexType name="ArrayOfAuction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Auction" nillable="true" type="tns:Auction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAuction" nillable="true" type="tns:ArrayOfAuction" />
+</xs:schema>

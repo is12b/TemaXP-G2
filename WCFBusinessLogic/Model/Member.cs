@@ -11,6 +11,45 @@ namespace WCFBusinessLogic.Model {
     public class Member {
         [DataMember]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int MemberId { get; set; }
+        public int MemberId {
+            get;
+            set;
+        }
+
+        [DataMember]
+        public string Name {
+            get;
+            set;
+        }
+
+        [DataMember]
+        public string Department {
+            get;
+            set;
+        }
+
+        [DataMember]
+        public string Cpr {
+            get;
+            set;
+        }
+
+        [DataMember]
+        public string Address {
+            get;
+            set;
+        }
+
+        [DataMember]
+        public string Email {
+            get;
+            set;
+        }
+
+        [DataMember]
+        public int Points {
+            get;
+            set;
+        }
     }
 }

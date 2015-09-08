@@ -19,5 +19,11 @@ namespace WCFBusinessLogic.Model {
         [DataMember]
         [Required]
         public Member Bidder { get; set; }
+
+        [DataMember]
+        public Lot Lot { get; set; }
+
+        [DataMember]
+        public int LotId { get; set; }
     }
 }
