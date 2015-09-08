@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RunActionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RunActionForm.Designer.cs">
+      <DependentUpon>RunActionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateAuctionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,17 +67,14 @@
     <Compile Include="Model\ArtPiece.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RunAuctionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RunAuctionForm.Designer.cs">
-      <DependentUpon>RunAuctionForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Service References\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RunActionForm.resx">
+      <DependentUpon>RunActionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateAuctionForm.resx">
       <DependentUpon>CreateAuctionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,9 +90,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RunAuctionForm.resx">
-      <DependentUpon>RunAuctionForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\DataSources\WCFBusinessLogic.Model.ArtPiece.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

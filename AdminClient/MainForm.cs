@@ -12,6 +12,7 @@ namespace AdminClient {
     public partial class MainForm : Form {
 
         CreateAuctionForm CreateAuctionFormShow;
+        RunActionForm RunAuctionFormShow;
 
         public MainForm() {
 
@@ -30,11 +31,31 @@ namespace AdminClient {
                 CreateAuctionFormShow.Activate();
             }
         }
+        private void RunAuctionMenuItem_Click(object sender, EventArgs e)
+        {
+            if (RunAuctionFormShow == null)
+            {
+
+                RunAuctionFormShow = new RunActionForm();
+                RunAuctionFormShow.MdiParent = this;
+                RunAuctionFormShow.FormClosed += RunAuctionFormShow_FormClosed;
+                RunAuctionFormShow.Show();
+            }
+        }
 
         void CreateAuctionFormShow_FormClosed(object sender, FormClosedEventArgs e) {
             //throw new NotImplementedException();
             CreateAuctionFormShow = null;
         }
 
+        void RunAuctionFormShow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //throw new NotImplementedException();
+            RunAuctionFormShow = null;
+        }
+
+
+
     }
 }
+
