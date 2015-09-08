@@ -231,3 +231,4 @@ $RECYCLE.BIN/
 *.lnk
 settingsResharper.DotSettings
 TemaXP-G2.sln.DotSettings
+WCFBusinessLogic/cs.config
