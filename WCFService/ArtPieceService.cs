@@ -11,7 +11,7 @@ namespace WCFService {
     public class ArtPieceService : IArtPieceService {
         private IArtPieceDb _artDb = new ArtPieceDb();
 
-        public void Add(ArtPiece piece) {
+        public void AddArtPiece(ArtPiece piece) {
             String regName = "^[a - zA - Z0 - 9]{ 4,10}$";
             if (piece.Number <= 0 || piece.Name.Length <= 0)
                 throw new ArgumentException();
@@ -21,19 +21,19 @@ namespace WCFService {
             _artDb.Add(piece);
         }
 
-        public void Delete(int id) {
+        public void DeleteArtPiece(int id) {
             _artDb.Delete(id);
         }
 
-        public List<ArtPiece> GetAll() {
+        public List<ArtPiece> GetAllArtPieces() {
             return _artDb.GetAll();
         }
 
-        public ArtPiece GetById(int id) {
+        public ArtPiece GetArtPieceById(int id) {
             return _artDb.GetById(id);
         }
 
-        public void Update(ArtPiece piece) {
+        public void UpdateArtPiece(ArtPiece piece) {
             String regName = "^[a - zA - Z0 - 9]{ 4,10}$";
             if (piece.Number <= 0 || piece.Name.Length <= 0)
                 throw new ArgumentException();

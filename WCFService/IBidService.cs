@@ -11,8 +11,8 @@ namespace WCFService
     [ServiceContract]
     public interface IBidService {
         [OperationContract]
-        void Add(Bid bid);
+        void AddBid(Bid bid);
         [OperationContract]
-        List<Bid> GetAllByLot(Lot lot);
+        List<Bid> GetAllBidsByLot(Lot lot);
     }
 }

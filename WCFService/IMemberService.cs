@@ -10,10 +10,10 @@ namespace WCFService {
     [ServiceContract]
     public interface IMemberService {
         [OperationContract]
-        List<Member> GetAll();
+        List<Member> GetAllMembers();
 
         [OperationContract]
-        Member GetById(int id);
+        Member GetMemberById(int id);
         
     }
 }

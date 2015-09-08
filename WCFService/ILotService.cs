@@ -10,18 +10,18 @@ namespace WCFService {
     [ServiceContract]
     public interface ILotService {
         [OperationContract]
-        void Add(Lot lot);
+        void AddLot(Lot lot);
 
         [OperationContract]
-        List<Lot> GetAllByAuction(Auction auction);
+        List<Lot> GetAllLotsByAuction(Auction auction);
 
         [OperationContract]
-        void Update(Lot lot);
+        void UpdateLot(Lot lot);
 
         [OperationContract]
-        void Delete(int id);
+        void DeleteLot(int id);
 
         [OperationContract]
-        Lot GetById(int id);
+        Lot GetLotById(int id);
     }
 }

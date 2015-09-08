@@ -11,25 +11,25 @@ namespace WCFService {
         private ILotDb _lotDb = new LotDb();
 
 
-        public void Add(Lot lot) {
+        public void AddLot(Lot lot) {
             if(lot.Position <= 0 || lot.MinBid <= 0)
                 throw new ArgumentException();
             _lotDb.Add(lot);
         }
 
-        public void Delete(int id) {
+        public void DeleteLot(int id) {
             _lotDb.Delete(id);
         }
 
-        public List<Lot> GetAllByAuction(Auction auction) {
+        public List<Lot> GetAllLotsByAuction(Auction auction) {
             return _lotDb.GetAllByAuction(auction);
         }
 
-        public Lot GetById(int id) {
+        public Lot GetLotById(int id) {
             return _lotDb.GetById(id);
         }
 
-        public void Update(Lot lot) {
+        public void UpdateLot(Lot lot) {
             if(lot.Position <= 0 || lot.MinBid <= 0)
                 throw new ArgumentException();
             _lotDb.Update(lot);

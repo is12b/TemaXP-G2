@@ -9,12 +9,12 @@ using WCFBusinessLogic.Model;
 namespace WCFService {
     public class BidService : IBidService {
         private IBidDb _bidDb = new BidDb();
-        public void Add(Bid bid) {
+        public void AddBid(Bid bid) {
             if(bid.Amount <= 0)
                 throw new ArgumentException();
         }
 
-        public List<Bid> GetAllByLot(Lot lot) {
+        public List<Bid> GetAllBidsByLot(Lot lot) {
             if (lot.Position == 0 || lot.MinBid <= 0)
                 throw new ArgumentException();
             else

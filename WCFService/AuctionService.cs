@@ -15,7 +15,7 @@ namespace WCFService
     public class AuctionService : IAuctionService {
         private IAuctionDb _ctr = new AuctionDb();
 
-        public void Add(Auction auction) {
+        public void AddAuction(Auction auction) {
             String regName = "^[a - zA - Z0 - 9]{ 4,10}$";
 
             if (Regex.IsMatch(auction.AuctionName, regName) || auction.AuctionName.Length > 1)
@@ -26,7 +26,7 @@ namespace WCFService
             _ctr.Add(auction);
         }
 
-        public void Update(Auction auction) {
+        public void UpdateAuction(Auction auction) {
             String regName = "^[a - zA - Z0 - 9]{ 4,10}$";
             if (Regex.IsMatch(auction.AuctionName, regName) || auction.AuctionName.Length > 1)
                 throw new ArgumentException();
@@ -36,15 +36,15 @@ namespace WCFService
             _ctr.Update(auction);
         }
 
-        public List<Auction> GetAll() {
+        public List<Auction> GetAllAuctions() {
             return _ctr.GetAll();
         }
 
-        public void Delete(int id) {
+        public void DeleteAuction(int id) {
             _ctr.Delete(id);
         }
 
-        public Auction GetById(int id) {
+        public Auction GetAuctionById(int id) {
             return _ctr.GetById(id);
         }
     }

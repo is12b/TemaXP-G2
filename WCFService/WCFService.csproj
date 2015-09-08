@@ -55,6 +55,7 @@
     <Compile Include="ILotService.cs" />
     <Compile Include="IMemberService.cs" />
     <Compile Include="LotService.cs" />
+    <Compile Include="MainService.cs" />
     <Compile Include="MemberService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

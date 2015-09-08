@@ -10,11 +10,11 @@ namespace WCFService {
     public class MemberService : IMemberService {
         private IMemberDb _memberDb = new MemberDb();
 
-        public List<Member> GetAll() {
+        public List<Member> GetAllMembers() {
             return _memberDb.GetAll();
         }
 
-        public Member GetById(int id) {
+        public Member GetMemberById(int id) {
             return _memberDb.GetById(id);
         }
     }

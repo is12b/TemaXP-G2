@@ -13,18 +13,18 @@ namespace WCFService
     public interface IAuctionService
     {
         [OperationContract]
-        void Add(Auction auction);
+        void AddAuction(Auction auction);
         [OperationContract]
-        void Update(Auction auction);
+        void UpdateAuction(Auction auction);
 
         [OperationContract]
-        List<Auction> GetAll();
+        List<Auction> GetAllAuctions();
 
         [OperationContract]
-        void Delete(int id);
+        void DeleteAuction(int id);
 
         [OperationContract]
-        Auction GetById(int id);
+        Auction GetAuctionById(int id);
     }
    
 }

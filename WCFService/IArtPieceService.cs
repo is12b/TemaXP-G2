@@ -12,19 +12,19 @@ namespace WCFService
     public interface IArtPieceService
     {
         [OperationContract]
-        void Add(ArtPiece piece);
+        void AddArtPiece(ArtPiece piece);
 
         [OperationContract]
-        List<ArtPiece> GetAll();
+        List<ArtPiece> GetAllArtPieces();
 
         [OperationContract]
-        void Update(ArtPiece piece);
+        void UpdateArtPiece(ArtPiece piece);
 
         [OperationContract]
-        void Delete(int id);
+        void DeleteArtPiece(int id);
 
         [OperationContract]
-        ArtPiece GetById(int id);
+        ArtPiece GetArtPieceById(int id);
     }
 
 
