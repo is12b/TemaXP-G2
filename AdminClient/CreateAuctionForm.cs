@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AdminClient.ServiceReference1;
+using WCFBusinessLogic.Helper;
 
 namespace AdminClient {
     public partial class CreateAuctionForm : Form {
@@ -32,7 +33,7 @@ namespace AdminClient {
             ap1.Artist = "Artist1";
             ap1.PurchasePrice = 125;
             ap1.PictureUrl = "";
-            ap1.Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu tincidunt quam, ut gravida orci. Donec tincidunt dictum molestie. Integer quis cursus ex. Nulla imperdiet lorem nibh, non pulvinar nunc facilisis ut. Phasellus fermentum sapien interdum sapien elementum pulvinar sed varius leo. Sed id arcu erat. Sed eu congue libero, id malesuada felis. Nullam tempor, tellus id porta varius, eros est dictum turpis, a luctus libero tellus mattis mi. Aliquam ultrices lorem ac odio consequat vehicula. Suspendisse eu sollicitudin metus, in eleifend odio. ";
+            ap1.Description = @"Lorem ipsum dolor";
 
 
             ArtPiece ap2 = new ArtPiece();
@@ -42,7 +43,7 @@ namespace AdminClient {
             ap2.Artist = "Artist2";
             ap2.PurchasePrice = 125;
             ap2.PictureUrl = "";
-            ap2.Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu tincidunt quam, ut gravida orci. Donec tincidunt dictum molestie. Integer quis cursus ex. Nulla imperdiet lorem nibh, non pulvinar nunc facilisis ut. Phasellus fermentum sapien interdum sapien elementum pulvinar sed varius leo. Sed id arcu erat. Sed eu congue libero, id malesuada felis. Nullam tempor, tellus id porta varius, eros est dictum turpis, a luctus libero tellus mattis mi. Aliquam ultrices lorem ac odio consequat vehicula. Suspendisse eu sollicitudin metus, in eleifend odio. ";
+            ap2.Description = @"Lorem ipsum dolor";
 
             ArtPiece ap3 = new ArtPiece();
             ap3.ArtPieceId = 3;
@@ -51,7 +52,7 @@ namespace AdminClient {
             ap3.Artist = "Artist3";
             ap3.PurchasePrice = 125;
             ap3.PictureUrl = "";
-            ap3.Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu tincidunt quam, ut gravida orci. Donec tincidunt dictum molestie. Integer quis cursus ex. Nulla imperdiet lorem nibh, non pulvinar nunc facilisis ut. Phasellus fermentum sapien interdum sapien elementum pulvinar sed varius leo. Sed id arcu erat. Sed eu congue libero, id malesuada felis. Nullam tempor, tellus id porta varius, eros est dictum turpis, a luctus libero tellus mattis mi. Aliquam ultrices lorem ac odio consequat vehicula. Suspendisse eu sollicitudin metus, in eleifend odio. ";
+            ap3.Description = @"Lorem ipsum dolor";
             
             ArtPiece ap4 = new ArtPiece();
             ap4.ArtPieceId = 4;
@@ -60,7 +61,7 @@ namespace AdminClient {
             ap4.Artist = "Artist4";
             ap4.PurchasePrice = 125;
             ap4.PictureUrl = "";
-            ap4.Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu tincidunt quam, ut gravida orci. Donec tincidunt dictum molestie. Integer quis cursus ex. Nulla imperdiet lorem nibh, non pulvinar nunc facilisis ut. Phasellus fermentum sapien interdum sapien elementum pulvinar sed varius leo. Sed id arcu erat. Sed eu congue libero, id malesuada felis. Nullam tempor, tellus id porta varius, eros est dictum turpis, a luctus libero tellus mattis mi. Aliquam ultrices lorem ac odio consequat vehicula. Suspendisse eu sollicitudin metus, in eleifend odio. ";
+            ap4.Description = @"Lorem ipsum dolor";
 
             ArtPiece ap5 = new ArtPiece();
             ap5.ArtPieceId = 5;
@@ -69,7 +70,7 @@ namespace AdminClient {
             ap5.Artist = "Artist5";
             ap5.PurchasePrice = 125;
             ap5.PictureUrl = "";
-            ap5.Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu tincidunt quam, ut gravida orci. Donec tincidunt dictum molestie. Integer quis cursus ex. Nulla imperdiet lorem nibh, non pulvinar nunc facilisis ut. Phasellus fermentum sapien interdum sapien elementum pulvinar sed varius leo. Sed id arcu erat. Sed eu congue libero, id malesuada felis. Nullam tempor, tellus id porta varius, eros est dictum turpis, a luctus libero tellus mattis mi. Aliquam ultrices lorem ac odio consequat vehicula. Suspendisse eu sollicitudin metus, in eleifend odio. ";
+            ap5.Description = @"Lorem ipsum dolor";
 
             ArtPieces.Add(ap1);
             ArtPieces.Add(ap2);
@@ -239,8 +240,9 @@ namespace AdminClient {
 
                 auctionClient.AddAuction(a);
 
+            } catch (Exception ex) {
+                ex.DebugGetLine();
             }
-            catch (Exception) {}
         }
 
         private void button2_Click(object sender, EventArgs e) {

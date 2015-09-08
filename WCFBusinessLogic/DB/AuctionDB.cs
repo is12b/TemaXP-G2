@@ -22,8 +22,10 @@ namespace WCFBusinessLogic.DB {
                 throw new Exception("You failed");
             }
 
+            ac.CreationDate = DateTime.Now;
+
             _ac.Auctions.Add(ac);
-            _ac.SaveChanges();
+            _ac.DebugSaveChanges();
         }
 
         public List<Auction> GetAll() {

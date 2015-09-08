@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -18,10 +19,14 @@ namespace WCFService
         public void AddAuction(Auction auction) {
             String regName = "^[a - zA - Z0 - 9]{ 4,10}$";
 
-            if (Regex.IsMatch(auction.AuctionName, regName) || auction.AuctionName.Length > 1)
-                throw new ArgumentException();
-            if(auction.LotDuration.TotalSeconds > 0 || auction.LotDuration.TotalMinutes > 120 || auction.Lots.Count > 0)
-                throw new ArgumentException();
+            //if (Regex.IsMatch(auction.AuctionName, regName) || auction.AuctionName.Length > 1)
+            //    throw new ArgumentException();
+            //if(auction.LotDuration.TotalSeconds > 0)
+            //    throw new ArgumentException();
+            //if (auction.Lots.Count < 0)
+            //    throw new ArgumentException();
+            //if (auction.LotDuration.TotalMinutes > 120)
+            //    throw new ArgumentException();
 
             _ctr.Add(auction);
         }
