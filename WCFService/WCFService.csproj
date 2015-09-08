@@ -46,9 +46,16 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArtPieceService.cs" />
     <Compile Include="AuctionService.cs" />
+    <Compile Include="BidService.cs" />
     <Compile Include="IArtPieceService.cs" />
     <Compile Include="IAuctionService.cs" />
+    <Compile Include="IBidService.cs" />
+    <Compile Include="ILotService.cs" />
+    <Compile Include="IMemberService.cs" />
+    <Compile Include="LotService.cs" />
+    <Compile Include="MemberService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

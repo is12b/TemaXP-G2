@@ -19,6 +19,12 @@ namespace WCFService
 
         [OperationContract]
         List<Auction> GetAll();
+
+        [OperationContract]
+        void Delete(int id);
+
+        [OperationContract]
+        Auction GetById(int id);
     }
    
 }

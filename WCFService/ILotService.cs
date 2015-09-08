@@ -6,26 +6,22 @@ using System.Text;
 using System.Threading.Tasks;
 using WCFBusinessLogic.Model;
 
-namespace WCFService
-{
+namespace WCFService {
     [ServiceContract]
-    public interface IArtPieceService
-    {
+    public interface ILotService {
         [OperationContract]
-        void Add(ArtPiece piece);
+        void Add(Lot lot);
 
         [OperationContract]
-        List<ArtPiece> GetAll();
+        List<Lot> GetAllByAuction(Auction auction);
 
         [OperationContract]
-        void Update(ArtPiece piece);
+        void Update(Lot lot);
 
         [OperationContract]
         void Delete(int id);
 
         [OperationContract]
-        ArtPiece GetById(int id);
+        Lot GetById(int id);
     }
-
-
 }

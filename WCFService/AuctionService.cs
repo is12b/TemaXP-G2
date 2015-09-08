@@ -39,13 +39,15 @@ namespace WCFService
         public List<Auction> GetAll() {
             return _ctr.GetAll();
         }
-    }
 
-    public class ArtPieceService : IArtPieceService
-    {
-        public void Add(ArtPiece piece)
-        {
+        public void Delete(int id) {
+            throw new NotImplementedException();
+        }
+
+        public Auction GetById(int id) {
             throw new NotImplementedException();
         }
     }
+
+    
 }
