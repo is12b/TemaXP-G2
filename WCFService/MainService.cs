@@ -87,7 +87,7 @@ namespace WCFService {
         }
 
         public List<ArtPiece> GetAllAvilableArtPieces() {
-            _artPieceService.GetAllAvilableArtPieces();
+            return _artPieceService.GetAllAvilableArtPieces();
         }
 
         public void AddBid(Bid bid) {

@@ -12,10 +12,10 @@ using WCFBusinessLogic.Helper;
 
 namespace AdminClient {
     public partial class CreateAuctionForm : Form {
-        public List<ArtPiece> _artPieces { get; set; }
-        public ServiceReference1.IAuctionService _auctionClient;
-        public ServiceReference1.IArtPieceService _artPieceClient;
-        public ServiceReference1.ILotService _lotClient;
+        private List<ArtPiece> _artPieces { get; set; }
+        private ServiceReference1.IAuctionService _auctionClient;
+        private ServiceReference1.IArtPieceService _artPieceClient;
+        private ServiceReference1.ILotService _lotClient;
         public CreateAuctionForm() {
 
             InitializeComponent();
@@ -32,12 +32,8 @@ namespace AdminClient {
             //    this.FakeArtPieces();
             //}
 
-            _artPieces = _artPieceClient.GetAllArtPieces();
-            foreach (var ap in _artPieces) {
-                if (ap.LotId > 0) {
-                    _artPieces.Remove(ap);
-                }
-            }
+            _artPieces = _artPieceClient.GetAllAvilableArtPieces();
+            
 
             foreach (ArtPiece ap in this._artPieces) {
                 Console.WriteLine("Item:" + ap.ArtPieceId);
@@ -165,13 +161,8 @@ namespace AdminClient {
 
                 TimeSpan ts = new TimeSpan(0, Int32.Parse(AuctionTimePerArtPiece.Value.ToString()), 0);
 
-                List<ArtPiece> selectedArtPieces = new List<ArtPiece>();
+                List<ArtPiece> selectedArtPieces = (from artpiece in _artPieces where artpiece.Checked == true select (artpiece)).ToList();
 
-                foreach (var artpiece in _artPieces) {
-                    if (artpiece.Checked == true) {
-                        selectedArtPieces.Add((artpiece));
-                    }
-                }
                 int count1 = 0;
                 List<Lot> lots = new List<Lot>();
                 foreach (var artpiece in selectedArtPieces) {
@@ -194,7 +185,7 @@ namespace AdminClient {
                 try {
                     _auctionClient.AddAuction(a);
                     MessageBox.Show("Auktionen blev oprettet!");
-                    this.Dispose();
+                    this.Close();
                 } catch (Exception ex) {
                     ex.DebugGetLine();
                     MessageBox.Show("Der opstod en fejl, prøv igen!");
