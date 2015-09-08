@@ -13,7 +13,7 @@ namespace WCFService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "AuctionService" in both code and config file together.
     public class AuctionService : IAuctionService {
-        private AuctionDb _ctr = new AuctionDb();
+        private IAuctionDb _ctr = new AuctionDb();
 
         public void Add(Auction auction) {
             String regName = "^[a - zA - Z0 - 9]{ 4,10}$";
@@ -41,11 +41,11 @@ namespace WCFService
         }
 
         public void Delete(int id) {
-            throw new NotImplementedException();
+            _ctr.Delete(id);
         }
 
         public Auction GetById(int id) {
-            throw new NotImplementedException();
+            return _ctr.GetById(id);
         }
     }
 
