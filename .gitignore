@@ -232,3 +232,4 @@ $RECYCLE.BIN/
 settingsResharper.DotSettings
 TemaXP-G2.sln.DotSettings
 WCFBusinessLogic/cs.config
+AdminClient/CreateAuctionForm.Designer.cs
