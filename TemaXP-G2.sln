@@ -1,11 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemberClient", "MemberClient\MemberClient.csproj", "{EB19BCB8-4A71-4C4C-9631-E6F3CA7CE9DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminClient", "AdminClient\AdminClient.csproj", "{D5783D24-42E2-4CD9-A871-B63F288D0A05}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9FF42EFD-9129-493B-B700-C5197078B98F} = {9FF42EFD-9129-493B-B700-C5197078B98F}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{4737926E-0596-4E95-958F-CB9DA4AEC9C7}"
 	ProjectSection(ProjectDependencies) = postProject

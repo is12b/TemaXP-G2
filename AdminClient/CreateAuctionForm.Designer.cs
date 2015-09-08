@@ -54,16 +54,20 @@
             this.AuctionNameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CheckForAuction = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.artPieceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.artistDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.artPieceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.Checked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.artPieceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.artistDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureUrlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.purchasePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.artPieceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -74,8 +78,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.AuctionMultipler)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.artPieceBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.artPieceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -97,6 +102,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Gem Auktion";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel4
             // 
@@ -326,53 +332,22 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CheckForAuction,
+            this.Checked,
             this.artPieceIdDataGridViewTextBoxColumn,
             this.numberDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
-            this.artistDataGridViewTextBoxColumn});
+            this.descriptionDataGridViewTextBoxColumn,
+            this.artistDataGridViewTextBoxColumn,
+            this.pictureUrlDataGridViewTextBoxColumn,
+            this.purchasePriceDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.artPieceBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 16);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(328, 384);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // CheckForAuction
-            // 
-            this.CheckForAuction.HeaderText = "";
-            this.CheckForAuction.Name = "CheckForAuction";
-            // 
-            // artPieceIdDataGridViewTextBoxColumn
-            // 
-            this.artPieceIdDataGridViewTextBoxColumn.DataPropertyName = "ArtPieceId";
-            this.artPieceIdDataGridViewTextBoxColumn.HeaderText = "ArtPieceId";
-            this.artPieceIdDataGridViewTextBoxColumn.Name = "artPieceIdDataGridViewTextBoxColumn";
-            this.artPieceIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // numberDataGridViewTextBoxColumn
-            // 
-            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
-            this.numberDataGridViewTextBoxColumn.HeaderText = "Number";
-            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
-            this.numberDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // artistDataGridViewTextBoxColumn
-            // 
-            this.artistDataGridViewTextBoxColumn.DataPropertyName = "Artist";
-            this.artistDataGridViewTextBoxColumn.HeaderText = "Artist";
-            this.artistDataGridViewTextBoxColumn.Name = "artistDataGridViewTextBoxColumn";
-            // 
-            // artPieceBindingSource
-            // 
-            this.artPieceBindingSource.DataSource = typeof(WCFBusinessLogic.Model.ArtPiece);
             // 
             // panel1
             // 
@@ -414,6 +389,63 @@
             this.button2.TabIndex = 0;
             this.button2.Text = "Markere Alle";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // Checked
+            // 
+            this.Checked.DataPropertyName = "Checked";
+            this.Checked.HeaderText = "Checked";
+            this.Checked.Name = "Checked";
+            // 
+            // artPieceIdDataGridViewTextBoxColumn
+            // 
+            this.artPieceIdDataGridViewTextBoxColumn.DataPropertyName = "ArtPieceId";
+            this.artPieceIdDataGridViewTextBoxColumn.HeaderText = "ArtPieceId";
+            this.artPieceIdDataGridViewTextBoxColumn.Name = "artPieceIdDataGridViewTextBoxColumn";
+            // 
+            // numberDataGridViewTextBoxColumn
+            // 
+            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
+            this.numberDataGridViewTextBoxColumn.HeaderText = "Number";
+            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // artistDataGridViewTextBoxColumn
+            // 
+            this.artistDataGridViewTextBoxColumn.DataPropertyName = "Artist";
+            this.artistDataGridViewTextBoxColumn.HeaderText = "Artist";
+            this.artistDataGridViewTextBoxColumn.Name = "artistDataGridViewTextBoxColumn";
+            // 
+            // pictureUrlDataGridViewTextBoxColumn
+            // 
+            this.pictureUrlDataGridViewTextBoxColumn.DataPropertyName = "PictureUrl";
+            this.pictureUrlDataGridViewTextBoxColumn.HeaderText = "PictureUrl";
+            this.pictureUrlDataGridViewTextBoxColumn.Name = "pictureUrlDataGridViewTextBoxColumn";
+            // 
+            // purchasePriceDataGridViewTextBoxColumn
+            // 
+            this.purchasePriceDataGridViewTextBoxColumn.DataPropertyName = "PurchasePrice";
+            this.purchasePriceDataGridViewTextBoxColumn.HeaderText = "PurchasePrice";
+            this.purchasePriceDataGridViewTextBoxColumn.Name = "purchasePriceDataGridViewTextBoxColumn";
+            // 
+            // artPieceBindingSource
+            // 
+            this.artPieceBindingSource.DataSource = typeof(AdminClient.ServiceReference1.ArtPiece);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this.AuctionMultipler;
             // 
             // CreateAuctionForm
             // 
@@ -438,8 +470,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.AuctionMultipler)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.artPieceBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.artPieceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -475,12 +508,16 @@
         private System.Windows.Forms.Label ArtPiecePriceLbl;
         private System.Windows.Forms.Label ArtPieceArtistLbl;
         private System.Windows.Forms.Label ArtPieceNumberLbl;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn CheckForAuction;
+        private System.Windows.Forms.BindingSource artPieceBindingSource;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Checked;
         private System.Windows.Forms.DataGridViewTextBoxColumn artPieceIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn artistDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource artPieceBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pictureUrlDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn purchasePriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
 
 
     }
