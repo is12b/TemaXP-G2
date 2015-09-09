@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AdminClient.ServiceReference1;
 
 namespace AdminClient
 {
-    public partial class SelectSavedAuctionForm : Form
-    {
+    public partial class SelectSavedAuctionForm : Form {
+        private ServiceReference1.IAuctionService auctionService = new AuctionServiceClient();
         public SelectSavedAuctionForm()
         {
             InitializeComponent();
@@ -19,16 +20,19 @@ namespace AdminClient
 
         private void CancelRunAuctionButton_Click(object sender, EventArgs e)
         {
-            // close window
+            this.Close();
         }
 
         private void RunAuctionButton_Click(object sender, EventArgs e) {
+            
+            var selectedAuction = SavedAuctionsDataGridView.CurrentRow;
 
-            int selectedAuction = SavedAuctionsDataGridView.SelectedRows[0];
+            if (selectedAuction > -1 && selectedAuction != null) {
+                Auction a = selectedAuction.DataBoundItem as Auction;
 
-            if (selectedAuction > -1) {
+                // call the run auction window
                 
-                SavedAuctionsDataGridView.Data
+                
             }
         }
     }
