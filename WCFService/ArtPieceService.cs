@@ -45,5 +45,6 @@ namespace WCFService {
                 throw new ArgumentException();
             _artDb.Update(piece);
         }
+        
     }
 }

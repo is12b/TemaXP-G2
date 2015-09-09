@@ -6,11 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using WCFBusinessLogic.Model;
 
-namespace WCFService
-{
+namespace WCFService {
     [ServiceContract]
-    public interface IArtPieceService
-    {
+    public interface IArtPieceService {
         [OperationContract]
         void AddArtPiece(ArtPiece piece);
 
@@ -28,6 +26,7 @@ namespace WCFService
 
         [OperationContract]
         List<ArtPiece> GetAllAvilableArtPieces();
+
     }
 
 
