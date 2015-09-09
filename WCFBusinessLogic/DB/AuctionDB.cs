@@ -46,7 +46,7 @@ namespace WCFBusinessLogic.DB {
         }
 
         public List<Auction> GetAllReady() {
-            var list = _ac.Auctions.Where(x => x.Status == Status.Ready).ToList();
+            var list = _ac.Auctions.Where(x => x.Status == Status.Ready).Include(x => x.Lots).Include(x => x.Lots.Select(l => l.ArtPiece)).ToList();
             return list;
         }
 
@@ -85,23 +85,14 @@ namespace WCFBusinessLogic.DB {
         }
 
         public Auction GetById(int id) {
-            var auction = _ac.Auctions.SingleOrDefault(a => a.AuctionId == id);
-            CheatRelations(auction);
+            var auction = _ac.Auctions.Where(a => a.AuctionId == id).Include(a => a.Lots).Include(a => a.Lots.Select(l => l.ArtPiece)).SingleOrDefault();
+
             if (auction == null) {
                 throw new NullReferenceException();
             }
 
             return auction;
 
-        }
-
-        public Auction CheatRelations(Auction auction) {
-
-            auction.Lots = _ac.Lots.Where(x => x.AuctionId == auction.AuctionId).ToList();
-            foreach (Lot l in auction.Lots) {
-                l.ArtPiece = _ac.ArtPieces.FirstOrDefault(x => x.LotId == l.LotId);
-            }
-            return auction;
         }
     }
 }
