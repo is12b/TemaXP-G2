@@ -1,6 +1,6 @@
 ﻿using System;
+using Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WCFBusinessLogic.Helper;
 using WCFUnitTest.MainServiceReference;
 
 namespace WCFUnitTest {

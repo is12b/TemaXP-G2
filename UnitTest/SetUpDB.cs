@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
+using Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WCFBusinessLogic.DB;
-using WCFBusinessLogic.Helper;
 using WCFBusinessLogic.Model;
 
 namespace UnitTest

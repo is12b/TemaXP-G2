@@ -77,6 +77,10 @@
     <Compile Include="SetUpDB.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{b86bbc24-8077-40c8-b02c-dddfa75ecb7b}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WCFBusinessLogic\WCFBusinessLogic.csproj">
       <Project>{35e59f92-9111-40c3-a4c6-db2e3fa4e8c8}</Project>
       <Name>WCFBusinessLogic</Name>

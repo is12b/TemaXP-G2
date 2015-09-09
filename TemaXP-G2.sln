@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemberClient", "MemberClient\MemberClient.csproj", "{EB19BCB8-4A71-4C4C-9631-E6F3CA7CE9DB}"
 EndProject
@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFUnitTest", "WCFUnitTest\
 	ProjectSection(ProjectDependencies) = postProject
 		{9FF42EFD-9129-493B-B700-C5197078B98F} = {9FF42EFD-9129-493B-B700-C5197078B98F}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{B86BBC24-8077-40C8-B02C-DDDFA75ECB7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{2588152C-16B9-4BB7-89C0-7B0AE9E03669}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2588152C-16B9-4BB7-89C0-7B0AE9E03669}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2588152C-16B9-4BB7-89C0-7B0AE9E03669}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B86BBC24-8077-40C8-B02C-DDDFA75ECB7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B86BBC24-8077-40C8-B02C-DDDFA75ECB7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B86BBC24-8077-40C8-B02C-DDDFA75ECB7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B86BBC24-8077-40C8-B02C-DDDFA75ECB7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

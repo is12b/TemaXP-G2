@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AdminClient.ServiceReference1;
-using WCFBusinessLogic.Helper;
+using Common;
 
 namespace AdminClient {
     public partial class CreateAuctionForm : Form {
