@@ -37,6 +37,7 @@ namespace AdminClient {
 
                 selectSavedAuctionForm = new SelectSavedAuctionForm();
                 selectSavedAuctionForm.MdiParent = this;
+                selectSavedAuctionForm.FormClosed += SelectedSavedAuctionForm_FormClosed;
                 selectSavedAuctionForm.Show();
             }
         }
@@ -44,6 +45,11 @@ namespace AdminClient {
         void CreateAuctionFormShow_FormClosed(object sender, FormClosedEventArgs e) {
             //throw new NotImplementedException();
             CreateAuctionFormShow = null;
+        }
+
+        void SelectedSavedAuctionForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            selectSavedAuctionForm = null;
         }
 
 
