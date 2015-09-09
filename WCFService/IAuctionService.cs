@@ -25,6 +25,9 @@ namespace WCFService
 
         [OperationContract]
         Auction GetAuctionById(int id);
+
+        [OperationContract]
+        void StartLot(int time, Lot lot);
     }
    
 }

@@ -52,6 +52,10 @@ namespace WCFService
         public Auction GetAuctionById(int id) {
             return _ctr.GetById(id);
         }
+
+        public void StartLot(int time, Lot lot) {
+            throw new NotImplementedException();
+        }
     }
 
     

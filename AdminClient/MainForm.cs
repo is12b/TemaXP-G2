@@ -36,7 +36,7 @@ namespace AdminClient {
             if (RunAuctionFormShow == null)
             {
 
-                RunAuctionFormShow = new RunActionForm();
+                //RunAuctionFormShow = new RunActionForm();
                 RunAuctionFormShow.MdiParent = this;
                 RunAuctionFormShow.FormClosed += RunAuctionFormShow_FormClosed;
                 RunAuctionFormShow.Show();

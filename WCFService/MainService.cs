@@ -70,6 +70,10 @@ namespace WCFService {
             return _auctionService.GetAuctionById(id);
         }
 
+        void IAuctionService.StartLot(int time, Lot lot) {
+            throw new System.NotImplementedException();
+        }
+
         List<ArtPiece> IArtPieceService.GetAllArtPieces() {
             return _artPieceService.GetAllArtPieces();
         }

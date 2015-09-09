@@ -898,6 +898,12 @@ namespace AdminClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetAuctionById", ReplyAction="http://tempuri.org/IAuctionService/GetAuctionByIdResponse")]
         System.Threading.Tasks.Task<AdminClient.ServiceReference1.Auction> GetAuctionByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/StartLot", ReplyAction="http://tempuri.org/IAuctionService/StartLotResponse")]
+        void StartLot(int time, AdminClient.ServiceReference1.Lot lot);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/StartLot", ReplyAction="http://tempuri.org/IAuctionService/StartLotResponse")]
+        System.Threading.Tasks.Task StartLotAsync(int time, AdminClient.ServiceReference1.Lot lot);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -965,6 +971,14 @@ namespace AdminClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task<AdminClient.ServiceReference1.Auction> GetAuctionByIdAsync(int id) {
             return base.Channel.GetAuctionByIdAsync(id);
+        }
+        
+        public void StartLot(int time, AdminClient.ServiceReference1.Lot lot) {
+            base.Channel.StartLot(time, lot);
+        }
+        
+        public System.Threading.Tasks.Task StartLotAsync(int time, AdminClient.ServiceReference1.Lot lot) {
+            return base.Channel.StartLotAsync(time, lot);
         }
     }
     
