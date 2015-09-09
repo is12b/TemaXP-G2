@@ -17,7 +17,7 @@ namespace WCFService
         private IAuctionDb _ctr = new AuctionDb();
 
         public void AddAuction(Auction auction) {
-            String regName = "^[a - zA - Z0 - 9]{ 4,10}$";
+            //String regName = "^[a - zA - Z0 - 9]{ 4,10}$";
 
             //if (Regex.IsMatch(auction.AuctionName, regName) || auction.AuctionName.Length > 1)
             //    throw new ArgumentException();

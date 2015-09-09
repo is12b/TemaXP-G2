@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using WCFBusinessLogic.Helper;
 using WCFUnitTest.MainServiceReference;
 
 namespace WCFUnitTest {
@@ -21,6 +22,7 @@ namespace WCFUnitTest {
                 });
                 Assert.Fail("Regex failed #ArtPiece");
             } catch (Exception e) {
+                e.DebugGetLine();
                 Assert.IsTrue(true);
             }
 
@@ -39,6 +41,7 @@ namespace WCFUnitTest {
                 });
                 Assert.Fail("Regex failed on Update");
             } catch (Exception e) {
+                e.DebugGetLine();
                 Assert.IsTrue(true);
             }
         }
