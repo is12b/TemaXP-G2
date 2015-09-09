@@ -74,6 +74,10 @@ namespace WCFService {
             //throw new System.NotImplementedException();
         }
 
+        public List<Auction> GetAllReady() {
+            return _auctionService.GetAllReady();
+        }
+
         List<ArtPiece> IArtPieceService.GetAllArtPieces() {
             return _artPieceService.GetAllArtPieces();
         }

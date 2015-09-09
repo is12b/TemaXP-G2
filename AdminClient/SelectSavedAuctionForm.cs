@@ -22,7 +22,7 @@ namespace AdminClient
         }
 
         private void LoadTable() {
-            SavedAuctionsDataGridView.DataSource = auctionService.GetAllAuctions();
+            SavedAuctionsDataGridView.DataSource = auctionService.GetAllReady();
         }
 
         private void CancelRunAuctionButton_Click(object sender, EventArgs e)

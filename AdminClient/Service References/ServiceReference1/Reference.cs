@@ -904,6 +904,12 @@ namespace AdminClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/StartLot", ReplyAction="http://tempuri.org/IAuctionService/StartLotResponse")]
         System.Threading.Tasks.Task StartLotAsync(int time, AdminClient.ServiceReference1.Lot lot);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetAllReady", ReplyAction="http://tempuri.org/IAuctionService/GetAllReadyResponse")]
+        System.Collections.Generic.List<AdminClient.ServiceReference1.Auction> GetAllReady();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetAllReady", ReplyAction="http://tempuri.org/IAuctionService/GetAllReadyResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AdminClient.ServiceReference1.Auction>> GetAllReadyAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -979,6 +985,14 @@ namespace AdminClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task StartLotAsync(int time, AdminClient.ServiceReference1.Lot lot) {
             return base.Channel.StartLotAsync(time, lot);
+        }
+        
+        public System.Collections.Generic.List<AdminClient.ServiceReference1.Auction> GetAllReady() {
+            return base.Channel.GetAllReady();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AdminClient.ServiceReference1.Auction>> GetAllReadyAsync() {
+            return base.Channel.GetAllReadyAsync();
         }
     }
     

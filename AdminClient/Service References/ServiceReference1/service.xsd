@@ -150,10 +150,22 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllReady">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllReadyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="GetAllReadyResult" nillable="true" type="q11:ArrayOfAuction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AddLot">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="lot" nillable="true" type="q11:Lot" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="lot" nillable="true" type="q12:Lot" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -165,21 +177,21 @@
   <xs:element name="GetAllLotsByAuction">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="auction" nillable="true" type="q12:Auction" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="auction" nillable="true" type="q13:Auction" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAllLotsByAuctionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="GetAllLotsByAuctionResult" nillable="true" type="q13:ArrayOfLot" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="GetAllLotsByAuctionResult" nillable="true" type="q14:ArrayOfLot" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateLot">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="lot" nillable="true" type="q14:Lot" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="lot" nillable="true" type="q15:Lot" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -210,14 +222,14 @@
   <xs:element name="GetLotByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="GetLotByIdResult" nillable="true" type="q15:Lot" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="GetLotByIdResult" nillable="true" type="q16:Lot" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddBid">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="bid" nillable="true" type="q16:Bid" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="bid" nillable="true" type="q17:Bid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -229,14 +241,14 @@
   <xs:element name="GetAllBidsByLot">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="lot" nillable="true" type="q17:Lot" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="lot" nillable="true" type="q18:Lot" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAllBidsByLotResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="GetAllBidsByLotResult" nillable="true" type="q18:ArrayOfBid" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="GetAllBidsByLotResult" nillable="true" type="q19:ArrayOfBid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -248,7 +260,7 @@
   <xs:element name="GetAllMembersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="GetAllMembersResult" nillable="true" type="q19:ArrayOfMember" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="GetAllMembersResult" nillable="true" type="q20:ArrayOfMember" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -262,7 +274,7 @@
   <xs:element name="GetMemberByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="GetMemberByIdResult" nillable="true" type="q20:Member" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/WCFBusinessLogic.Model" minOccurs="0" name="GetMemberByIdResult" nillable="true" type="q21:Member" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

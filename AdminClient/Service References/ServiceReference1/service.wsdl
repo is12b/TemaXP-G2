@@ -79,6 +79,12 @@
   <wsdl:message name="IAuctionService_StartLot_OutputMessage">
     <wsdl:part name="parameters" element="tns:StartLotResponse" />
   </wsdl:message>
+  <wsdl:message name="IAuctionService_GetAllReady_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReady" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionService_GetAllReady_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReadyResponse" />
+  </wsdl:message>
   <wsdl:message name="ILotService_AddLot_InputMessage">
     <wsdl:part name="parameters" element="tns:AddLot" />
   </wsdl:message>
@@ -183,6 +189,10 @@
     <wsdl:operation name="StartLot">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuctionService/StartLot" message="tns:IAuctionService_StartLot_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAuctionService/StartLotResponse" message="tns:IAuctionService_StartLot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReady">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionService/GetAllReady" message="tns:IAuctionService_GetAllReady_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionService/GetAllReadyResponse" message="tns:IAuctionService_GetAllReady_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="ILotService">
@@ -333,6 +343,15 @@
     </wsdl:operation>
     <wsdl:operation name="StartLot">
       <soap:operation soapAction="http://tempuri.org/IAuctionService/StartLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReady">
+      <soap:operation soapAction="http://tempuri.org/IAuctionService/GetAllReady" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

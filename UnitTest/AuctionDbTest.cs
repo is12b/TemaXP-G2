@@ -98,7 +98,7 @@ namespace UnitTest {
                 CreationDate = DateTime.Now,
                 LotDuration = TimeSpan.FromMinutes(30),
                 Multiplier = 3,
-                Status = Status.Ready,
+                Status = Status.Ongoing,
                 Lots = new List<Lot>() { _bidLot }
             };
 
@@ -121,6 +121,22 @@ namespace UnitTest {
                 _mockContext.Verify(m => m.SaveChanges(), Times.AtMost(2));
             } catch (Exception e) {
                 Console.WriteLine(e);
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public void GetAllReadyTest() {
+            try {
+                Test();
+                var auctionCtr = new AuctionDb(_mockContext.Object);
+
+                var list = auctionCtr.GetAllReady();
+
+                Assert.AreEqual(1, list.Count);
+            }
+            catch (Exception ex) {
+                ex.DebugGetLine();
                 Assert.Fail();
             }
         }

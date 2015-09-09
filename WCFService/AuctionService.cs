@@ -54,6 +54,11 @@ namespace WCFService
         public void StartLot(int time, Lot lot) {
             //throw new NotImplementedException();
         }
+
+
+        public List<Auction> GetAllReady() {
+            return _ctr.GetAllReady();
+        }
     }
 
     

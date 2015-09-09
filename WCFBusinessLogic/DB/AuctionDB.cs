@@ -45,6 +45,11 @@ namespace WCFBusinessLogic.DB {
             return list;
         }
 
+        public List<Auction> GetAllReady() {
+            var list = _ac.Auctions.Where(x => x.Status == Status.Ready).ToList();
+            return list;
+        }
+
         public void Update(Auction auc) {
             if (auc.Lots.Count <= 0) {
                 throw new Exception("You failed");

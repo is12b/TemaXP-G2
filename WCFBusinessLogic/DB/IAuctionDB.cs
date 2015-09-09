@@ -17,5 +17,7 @@ namespace WCFBusinessLogic.DB {
         void Delete(int id);
 
         Auction GetById(int id);
+
+        List<Auction> GetAllReady();
     }
 }
