@@ -14,6 +14,18 @@ namespace UnitTest
         private Random rand = new Random();
 
         [TestMethod]
+        public void TestGetAllAuc() {
+            try {
+                AuctionDb _db = new AuctionDb();
+                var list = _db.GetAll();
+            }
+            catch (Exception e) {
+                e.DebugGetLine();
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
         public void CreateStuff() {
             ArtPieceDb _db = new ArtPieceDb();
             for (int i = 0; i < 20; i++) {

@@ -41,6 +41,9 @@ namespace UnitTest {
             _mockContext.Setup(m => m.Lots).Returns(_lotMock.Object);
             _mockContext.Setup(m => m.ArtPieces).Returns(_artPieceMock.Object);
 
+            _auctionMock.Setup(x => x.Include(It.IsAny<string>())).Returns(_auctionMock.Object);
+
+
             _artPiece = new ArtPiece() {
                 ArtPieceId = 1,
                 Artist = "Anders",
@@ -54,6 +57,7 @@ namespace UnitTest {
                 LotId = 1,
                 MinBid = 20,
                 Position = 1,
+                AuctionId = 1,
                 ArtPiece = _artPiece
             };
 
@@ -89,6 +93,7 @@ namespace UnitTest {
                 MinBid = 20,
                 Position = 1,
                 ArtPiece = _bidArtPiece,
+                AuctionId = 5,
                 Bids = new List<Bid>() { bid}
             };
 

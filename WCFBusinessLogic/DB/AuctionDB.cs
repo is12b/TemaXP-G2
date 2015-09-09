@@ -41,7 +41,7 @@ namespace WCFBusinessLogic.DB {
         }
 
         public List<Auction> GetAll() {
-            var list = _ac.Auctions.ToList();
+            var list = _ac.Auctions.Include(a => a.Lots).Include(a => a.Lots.Select(l => l.ArtPiece)).ToList();
             return list;
         }
 
