@@ -54,6 +54,12 @@
             this.AuctionNameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.artPieceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.Checked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.artPieceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,12 +68,6 @@
             this.artistDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureUrlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.purchasePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.artPieceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -349,8 +349,10 @@
             this.dataGridView1.Size = new System.Drawing.Size(328, 384);
             this.dataGridView1.TabIndex = 1;
             // 
-<<<<<<< HEAD
-=======
+            // artPieceBindingSource
+            // 
+            this.artPieceBindingSource.DataSource = typeof(AdminClient.ServiceReference1.ArtPiece);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.button4);
@@ -393,7 +395,10 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button_SelectAll);
             // 
->>>>>>> origin/master
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this.AuctionMultipler;
+            // 
             // Checked
             // 
             this.Checked.DataPropertyName = "Checked";
@@ -405,92 +410,49 @@
             this.artPieceIdDataGridViewTextBoxColumn.DataPropertyName = "ArtPieceId";
             this.artPieceIdDataGridViewTextBoxColumn.HeaderText = "ArtPieceId";
             this.artPieceIdDataGridViewTextBoxColumn.Name = "artPieceIdDataGridViewTextBoxColumn";
+            this.artPieceIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // numberDataGridViewTextBoxColumn
             // 
             this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
             this.numberDataGridViewTextBoxColumn.HeaderText = "Number";
             this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
+            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
             this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // artistDataGridViewTextBoxColumn
             // 
             this.artistDataGridViewTextBoxColumn.DataPropertyName = "Artist";
             this.artistDataGridViewTextBoxColumn.HeaderText = "Artist";
             this.artistDataGridViewTextBoxColumn.Name = "artistDataGridViewTextBoxColumn";
+            this.artistDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pictureUrlDataGridViewTextBoxColumn
             // 
             this.pictureUrlDataGridViewTextBoxColumn.DataPropertyName = "PictureUrl";
             this.pictureUrlDataGridViewTextBoxColumn.HeaderText = "PictureUrl";
             this.pictureUrlDataGridViewTextBoxColumn.Name = "pictureUrlDataGridViewTextBoxColumn";
+            this.pictureUrlDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // purchasePriceDataGridViewTextBoxColumn
             // 
             this.purchasePriceDataGridViewTextBoxColumn.DataPropertyName = "PurchasePrice";
             this.purchasePriceDataGridViewTextBoxColumn.HeaderText = "PurchasePrice";
             this.purchasePriceDataGridViewTextBoxColumn.Name = "purchasePriceDataGridViewTextBoxColumn";
-            // 
-            // artPieceBindingSource
-            // 
-            this.artPieceBindingSource.DataSource = typeof(AdminClient.ServiceReference1.ArtPiece);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 400);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(3);
-            this.panel1.Size = new System.Drawing.Size(328, 29);
-            this.panel1.TabIndex = 0;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(165, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Flyt Ned";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(84, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Flyt Op";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Markere Alle";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this.AuctionMultipler;
+            this.purchasePriceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // CreateAuctionForm
             // 
@@ -554,6 +516,7 @@
         private System.Windows.Forms.Label ArtPieceArtistLbl;
         private System.Windows.Forms.Label ArtPieceNumberLbl;
         private System.Windows.Forms.BindingSource artPieceBindingSource;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Checked;
         private System.Windows.Forms.DataGridViewTextBoxColumn artPieceIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
@@ -562,7 +525,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn artistDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pictureUrlDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn purchasePriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
 
 
     }

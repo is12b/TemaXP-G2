@@ -12,10 +12,10 @@ using WCFBusinessLogic.Helper;
 
 namespace AdminClient {
     public partial class CreateAuctionForm : Form {
-        private List<ArtPiece> _artPieces { get; set; }
-        private ServiceReference1.IAuctionService _auctionClient;
-        private ServiceReference1.IArtPieceService _artPieceClient;
-        private ServiceReference1.ILotService _lotClient;
+        private List<ArtPiece> ArtPieces { get; set; }
+        private IAuctionService _auctionClient;
+        private IArtPieceService _artPieceClient;
+        private ILotService _lotClient;
         public CreateAuctionForm() {
 
             InitializeComponent();
@@ -32,13 +32,13 @@ namespace AdminClient {
             //    this.FakeArtPieces();
             //}
 
-            _artPieces = _artPieceClient.GetAllAvilableArtPieces();
+            ArtPieces = _artPieceClient.GetAllAvilableArtPieces();
             
 
-            foreach (ArtPiece ap in this._artPieces) {
+            foreach (ArtPiece ap in this.ArtPieces) {
                 Console.WriteLine("Item:" + ap.ArtPieceId);
             }
-            this.dataGridView1.DataSource = this._artPieces;
+            this.dataGridView1.DataSource = this.ArtPieces;
         }
 
         private void MoveDown(int index) {
@@ -46,11 +46,11 @@ namespace AdminClient {
                 if (index + 1 < dataGridView1.RowCount) {
                     int selectedIndex = index;
                     int swapIndex = selectedIndex + 1;
-                    ArtPiece selectedAP = this._artPieces[selectedIndex];
-                    ArtPiece swapAP = this._artPieces[swapIndex];
+                    ArtPiece selectedAP = this.ArtPieces[selectedIndex];
+                    ArtPiece swapAP = this.ArtPieces[swapIndex];
 
-                    this._artPieces[swapIndex] = selectedAP;
-                    this._artPieces[selectedIndex] = swapAP;
+                    this.ArtPieces[swapIndex] = selectedAP;
+                    this.ArtPieces[selectedIndex] = swapAP;
                     dataGridView1.Rows[swapIndex].Selected = true;
                     dataGridView1.CurrentCell = dataGridView1.Rows[swapIndex].Cells[0];
 
@@ -64,11 +64,11 @@ namespace AdminClient {
                 if (index > 0) {
                     int selectedIndex = index;
                     int swapIndex = selectedIndex - 1;
-                    ArtPiece selectedAP = this._artPieces[selectedIndex];
-                    ArtPiece swapAP = this._artPieces[swapIndex];
+                    ArtPiece selectedAP = this.ArtPieces[selectedIndex];
+                    ArtPiece swapAP = this.ArtPieces[swapIndex];
 
-                    this._artPieces[swapIndex] = selectedAP;
-                    this._artPieces[selectedIndex] = swapAP;
+                    this.ArtPieces[swapIndex] = selectedAP;
+                    this.ArtPieces[selectedIndex] = swapAP;
                     dataGridView1.Rows[swapIndex].Selected = true;
                     dataGridView1.CurrentCell = dataGridView1.Rows[swapIndex].Cells[0];
 
@@ -147,8 +147,8 @@ namespace AdminClient {
 
                 bool found = false;
                 int count = 0;
-                while (!found && count < _artPieces.Count) {
-                    if (_artPieces[count].Checked == true) {
+                while (!found && count < ArtPieces.Count) {
+                    if (ArtPieces[count].Checked == true) {
                         found = true;
                     }
                     count ++;
@@ -161,7 +161,7 @@ namespace AdminClient {
 
                 TimeSpan ts = new TimeSpan(0, Int32.Parse(AuctionTimePerArtPiece.Value.ToString()), 0);
 
-                List<ArtPiece> selectedArtPieces = (from artpiece in _artPieces where artpiece.Checked == true select (artpiece)).ToList();
+                List<ArtPiece> selectedArtPieces = (from artpiece in ArtPieces where artpiece.Checked == true select (artpiece)).ToList();
 
                 int count1 = 0;
                 List<Lot> lots = new List<Lot>();
@@ -198,7 +198,7 @@ namespace AdminClient {
 
         private void button_SelectAll(object sender, EventArgs e) {
             //check alle bokse
-            foreach (ArtPiece ap in _artPieces) {
+            foreach (ArtPiece ap in ArtPieces) {
                 ap.Checked = true;
             }
             dataGridView1.Update();

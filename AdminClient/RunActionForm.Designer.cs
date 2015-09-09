@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
             this.CurrentBidLbl = new System.Windows.Forms.Label();
             this.ArtPiecePriceLbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,14 +49,19 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.artPieceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.minBidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lotBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtLog = new System.Windows.Forms.TextBox();
+            this.timerLot = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lotBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,7 +87,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.txtDescription);
             this.groupBox3.Controls.Add(this.CurrentBidLbl);
             this.groupBox3.Controls.Add(this.ArtPiecePriceLbl);
             this.groupBox3.Controls.Add(this.label1);
@@ -104,13 +110,13 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
             // 
-            // textBox2
+            // txtDescription
             // 
-            this.textBox2.Location = new System.Drawing.Point(9, 95);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(181, 68);
-            this.textBox2.TabIndex = 42;
+            this.txtDescription.Location = new System.Drawing.Point(9, 95);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(181, 68);
+            this.txtDescription.TabIndex = 42;
             // 
             // CurrentBidLbl
             // 
@@ -254,16 +260,39 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.artPieceDataGridViewTextBoxColumn,
+            this.minBidDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.lotBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 16);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(309, 270);
             this.dataGridView1.TabIndex = 0;
             // 
+            // artPieceDataGridViewTextBoxColumn
+            // 
+            this.artPieceDataGridViewTextBoxColumn.DataPropertyName = "ArtPiece";
+            this.artPieceDataGridViewTextBoxColumn.HeaderText = "ArtPiece";
+            this.artPieceDataGridViewTextBoxColumn.Name = "artPieceDataGridViewTextBoxColumn";
+            this.artPieceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // minBidDataGridViewTextBoxColumn
+            // 
+            this.minBidDataGridViewTextBoxColumn.DataPropertyName = "MinBid";
+            this.minBidDataGridViewTextBoxColumn.HeaderText = "MinBid";
+            this.minBidDataGridViewTextBoxColumn.Name = "minBidDataGridViewTextBoxColumn";
+            this.minBidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lotBindingSource
+            // 
+            this.lotBindingSource.DataSource = typeof(AdminClient.ServiceReference1.Lot);
+            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtLog);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.Location = new System.Drawing.Point(0, 289);
             this.groupBox1.Name = "groupBox1";
@@ -272,14 +301,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Auktionslog";
             // 
-            // textBox1
+            // txtLog
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(3, 16);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(757, 64);
-            this.textBox1.TabIndex = 0;
+            this.txtLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLog.Location = new System.Drawing.Point(3, 16);
+            this.txtLog.Multiline = true;
+            this.txtLog.Name = "txtLog";
+            this.txtLog.Size = new System.Drawing.Size(757, 64);
+            this.txtLog.TabIndex = 0;
+            // 
+            // timerLot
+            // 
+            this.timerLot.Interval = 1000;
+            this.timerLot.Tick += new System.EventHandler(this.timerLot_Tick);
             // 
             // RunActionForm
             // 
@@ -296,6 +330,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lotBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -306,10 +341,10 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtLog;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label CurrentBidLbl;
         private System.Windows.Forms.Label ArtPiecePriceLbl;
         private System.Windows.Forms.Label label1;
@@ -326,5 +361,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn artPieceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn minBidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource lotBindingSource;
+        private System.Windows.Forms.Timer timerLot;
     }
 }
