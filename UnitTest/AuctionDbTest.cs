@@ -118,7 +118,7 @@ namespace UnitTest {
                 auctionCtr.Add(_auction);
 
                 _auctionMock.Verify(m => m.Add(It.IsAny<Auction>()), Times.Once());
-                _mockContext.Verify(m => m.SaveChanges(), Times.Once());
+                _mockContext.Verify(m => m.SaveChanges(), Times.AtMost(2));
             } catch (Exception e) {
                 Console.WriteLine(e);
                 Assert.Fail();
@@ -133,6 +133,7 @@ namespace UnitTest {
 
                 var list = auctionCtr.GetAll();
                 Console.WriteLine(list[0].AuctionName);
+                Console.WriteLine(list[0].Lots.Count);
 
                 Assert.AreNotEqual(0, list.Count);
             } catch (Exception e) {

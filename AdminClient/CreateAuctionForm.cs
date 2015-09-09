@@ -15,16 +15,17 @@ namespace AdminClient {
         private List<ArtPiece> ArtPieces { get; set; }
         private IAuctionService _auctionClient;
         private IArtPieceService _artPieceClient;
-        private ILotService _lotClient;
+        public ILotService LotClient { get; private set; }
+
         public CreateAuctionForm() {
 
             InitializeComponent();
             _auctionClient = new AuctionServiceClient();
             _artPieceClient = new ArtPieceServiceClient();
-            _lotClient = new LotServiceClient();
+            LotClient = new LotServiceClient();
 
-            List<ArtPiece> ArtPieces = new List<ArtPiece>();
-            this.BindArtPieces();
+            List<ArtPiece> artPieces = new List<ArtPiece>();
+            BindArtPieces();
         }
 
         private void BindArtPieces() {
@@ -35,10 +36,10 @@ namespace AdminClient {
             ArtPieces = _artPieceClient.GetAllAvilableArtPieces();
             
 
-            foreach (ArtPiece ap in this.ArtPieces) {
+            foreach (ArtPiece ap in ArtPieces) {
                 Console.WriteLine("Item:" + ap.ArtPieceId);
             }
-            this.dataGridView1.DataSource = this.ArtPieces;
+            dataGridView1.DataSource = this.ArtPieces;
         }
 
         private void MoveDown(int index) {

@@ -67,5 +67,9 @@ namespace WCFBusinessLogic.Model {
 
         [DataMember]
         public Lot Lot { get; set; }
+
+        public override string ToString() {
+            return Name;
+        }
     }
 }

@@ -81,13 +81,22 @@ namespace WCFBusinessLogic.DB {
 
         public Auction GetById(int id) {
             var auction = _ac.Auctions.SingleOrDefault(a => a.AuctionId == id);
-
+            CheatRelations(auction);
             if (auction == null) {
                 throw new NullReferenceException();
             }
 
             return auction;
 
+        }
+
+        public Auction CheatRelations(Auction auction) {
+
+            auction.Lots = _ac.Lots.Where(x => x.AuctionId == auction.AuctionId).ToList();
+            foreach (Lot l in auction.Lots) {
+                l.ArtPiece = _ac.ArtPieces.FirstOrDefault(x => x.LotId == l.LotId);
+            }
+            return auction;
         }
     }
 }

@@ -33,11 +33,9 @@ namespace WCFService
 
         public void UpdateAuction(Auction auction) {
             String regName = "^[a - zA - Z0 - 9]{ 4,10}$";
-            if (Regex.IsMatch(auction.AuctionName, regName) || auction.AuctionName.Length > 1)
+            if (Regex.IsMatch(auction.AuctionName, regName) || auction.AuctionName.Length < 1)
                 throw new ArgumentException();
-            if (auction.LotDuration.TotalSeconds > 0 || auction.LotDuration.TotalMinutes > 120 || auction.Lots.Count > 0)
-                throw new ArgumentException();
-
+            
             _ctr.Update(auction);
         }
 
@@ -54,7 +52,7 @@ namespace WCFService
         }
 
         public void StartLot(int time, Lot lot) {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 

@@ -49,20 +49,20 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.artPieceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.minBidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lotBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.timerLot = new System.Windows.Forms.Timer(this.components);
+            this.artPieceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.minBidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lotBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lotBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lotBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -108,7 +108,6 @@
             this.groupBox3.Size = new System.Drawing.Size(448, 289);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
             // 
             // txtDescription
             // 
@@ -163,6 +162,7 @@
             this.CancelLotButton.TabIndex = 32;
             this.CancelLotButton.Text = "Afbryd Lot";
             this.CancelLotButton.UseVisualStyleBackColor = true;
+            this.CancelLotButton.Click += new System.EventHandler(this.CancelLotButton_Click_1);
             // 
             // ArtPieceNumberLbl
             // 
@@ -181,6 +181,7 @@
             this.CancelAuctionButton.TabIndex = 31;
             this.CancelAuctionButton.Text = "Afslut Auktion";
             this.CancelAuctionButton.UseVisualStyleBackColor = true;
+            this.CancelAuctionButton.Click += new System.EventHandler(this.CancelAuctionButton_Click_1);
             // 
             // label4
             // 
@@ -256,7 +257,7 @@
             this.groupBox2.Size = new System.Drawing.Size(315, 289);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Kunstværker";
             // 
             // dataGridView1
             // 
@@ -271,24 +272,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(309, 270);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // artPieceDataGridViewTextBoxColumn
-            // 
-            this.artPieceDataGridViewTextBoxColumn.DataPropertyName = "ArtPiece";
-            this.artPieceDataGridViewTextBoxColumn.HeaderText = "ArtPiece";
-            this.artPieceDataGridViewTextBoxColumn.Name = "artPieceDataGridViewTextBoxColumn";
-            this.artPieceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // minBidDataGridViewTextBoxColumn
-            // 
-            this.minBidDataGridViewTextBoxColumn.DataPropertyName = "MinBid";
-            this.minBidDataGridViewTextBoxColumn.HeaderText = "MinBid";
-            this.minBidDataGridViewTextBoxColumn.Name = "minBidDataGridViewTextBoxColumn";
-            this.minBidDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // lotBindingSource
-            // 
-            this.lotBindingSource.DataSource = typeof(AdminClient.ServiceReference1.Lot);
             // 
             // groupBox1
             // 
@@ -315,6 +298,24 @@
             this.timerLot.Interval = 1000;
             this.timerLot.Tick += new System.EventHandler(this.timerLot_Tick);
             // 
+            // artPieceDataGridViewTextBoxColumn
+            // 
+            this.artPieceDataGridViewTextBoxColumn.DataPropertyName = "ArtPiece";
+            this.artPieceDataGridViewTextBoxColumn.HeaderText = "ArtPiece";
+            this.artPieceDataGridViewTextBoxColumn.Name = "artPieceDataGridViewTextBoxColumn";
+            this.artPieceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // minBidDataGridViewTextBoxColumn
+            // 
+            this.minBidDataGridViewTextBoxColumn.DataPropertyName = "MinBid";
+            this.minBidDataGridViewTextBoxColumn.HeaderText = "MinBid";
+            this.minBidDataGridViewTextBoxColumn.Name = "minBidDataGridViewTextBoxColumn";
+            this.minBidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lotBindingSource
+            // 
+            this.lotBindingSource.DataSource = typeof(AdminClient.ServiceReference1.Lot);
+            // 
             // RunActionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,9 +331,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lotBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lotBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

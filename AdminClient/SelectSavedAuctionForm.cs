@@ -13,9 +13,16 @@ namespace AdminClient
 {
     public partial class SelectSavedAuctionForm : Form {
         private ServiceReference1.IAuctionService auctionService = new AuctionServiceClient();
+
+        private RunActionForm _runActionForm;
         public SelectSavedAuctionForm()
         {
             InitializeComponent();
+            LoadTable();
+        }
+
+        private void LoadTable() {
+            SavedAuctionsDataGridView.DataSource = auctionService.GetAllAuctions();
         }
 
         private void CancelRunAuctionButton_Click(object sender, EventArgs e)
@@ -27,11 +34,16 @@ namespace AdminClient
             
             var selectedAuction = SavedAuctionsDataGridView.CurrentRow;
 
-            if (selectedAuction > -1 && selectedAuction != null) {
+            if (selectedAuction != null) {
                 Auction a = selectedAuction.DataBoundItem as Auction;
-
+                a = auctionService.GetAuctionById(a.AuctionId);
+                a.Status = Status.Ongoing;
+                auctionService.UpdateAuction(a);
                 // call the run auction window
-                
+                _runActionForm = new RunActionForm(a);
+                _runActionForm.MdiParent = this.ParentForm;
+                //_runActionForm.FormClosed += _runActionForm_FormClosed;
+                _runActionForm.Show();
                 
             }
         }

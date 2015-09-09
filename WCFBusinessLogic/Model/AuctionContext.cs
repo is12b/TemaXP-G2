@@ -6,6 +6,7 @@ using System.Data.Entity.Migrations.Model;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,6 +24,7 @@ namespace WCFBusinessLogic.Model {
         public virtual DbSet<Bid> Bids { get; set; }
         public virtual DbSet<Member> Members { get; set; }
 
+        
         public void DebugSaveChanges() {
             try {
                 // Your code...

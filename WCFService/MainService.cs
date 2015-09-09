@@ -71,7 +71,7 @@ namespace WCFService {
         }
 
         void IAuctionService.StartLot(int time, Lot lot) {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
 
         List<ArtPiece> IArtPieceService.GetAllArtPieces() {

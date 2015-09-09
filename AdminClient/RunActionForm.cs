@@ -39,9 +39,10 @@ namespace AdminClient
                 ArtPieceNumberLbl.Text = l.ArtPiece.Number.ToString();
                 ArtPiecePriceLbl.Text = l.ArtPiece.PurchasePrice.ToString();
                 txtDescription.Text = l.ArtPiece.Description;
-                _auctionClient.UpdateAuction(_auction);
                 _auctionClient.StartLot(Int32.Parse(_auction.LotDuration.TotalSeconds.ToString()),l);
                 TimerStart();
+                dataGridView1.Rows[_lotCount].Selected = true;
+                dataGridView1.CurrentCell = dataGridView1.Rows[_lotCount].Cells[0];
             }
             else {
                 //Auktion er færdig
@@ -51,16 +52,6 @@ namespace AdminClient
 
         private void AcceptBid(Bid bid) {
             _auction.Lots[_lotCount].Bids.Add(bid);
-        }
-
-        private void CancelLotButton_Click(object sender, EventArgs e) {
-            _timeLeft = 30;
-        }
-
-        private void CancelAuctionButton_Click(object sender, EventArgs e)
-        {
-            // cancel auction
-            FinishAuction();
         }
 
         private void FinishAuction() {
@@ -83,8 +74,17 @@ namespace AdminClient
                     MessageBox.Show("Kunstværk ikke købt!");
                 }
                 _lotCount ++;
+                _auctionClient.UpdateAuction(_auction);
                 NextLot();
             }
+        }
+
+        private void CancelLotButton_Click_1(object sender, EventArgs e) {
+            _timeLeft = 10;
+        }
+
+        private void CancelAuctionButton_Click_1(object sender, EventArgs e) {
+            FinishAuction();
         }
     }
 }
